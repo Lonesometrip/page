@@ -1,0 +1,862 @@
+/* Carpool Pages Styling */
+
+/* Main container styling */
+.carpool-container {
+  position: relative;
+  width: 100%;
+  min-height: 100vh;
+  margin: 0 auto;
+  padding: 4rem 2rem;
+  overflow: hidden;
+  color: #ffffff;
+  z-index: 0;
+}
+
+/* Black-gold background styling */
+.carpool-container.black-gold-bg {
+  background-color: #000000;
+  background-image:
+    radial-gradient(circle at 10% 20%, rgba(212, 175, 55, 0.03) 0%, transparent 20%),
+    radial-gradient(circle at 90% 80%, rgba(212, 175, 55, 0.03) 0%, transparent 20%),
+    linear-gradient(45deg, rgba(212, 175, 55, 0.02) 25%, transparent 25%, transparent 50%, rgba(212, 175, 55, 0.02) 50%, rgba(212, 175, 55, 0.02) 75%, transparent 75%, transparent);
+  background-size: 600px 600px, 600px 600px, 100px 100px;
+}
+
+/* Gold pattern overlay */
+.carpool-container.black-gold-bg::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url("data:image/svg+xml,%3Csvg width='20' height='20' viewBox='0 0 20 20' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23D4AF37' fill-opacity='0.03' fill-rule='evenodd'%3E%3Ccircle cx='3' cy='3' r='3'/%3E%3Ccircle cx='13' cy='13' r='3'/%3E%3C/g%3E%3C/svg%3E");
+  pointer-events: none;
+  z-index: -1;
+}
+
+/* 360-degree view indicator */
+.view-360-indicator {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background: rgba(212, 175, 55, 0.8);
+  color: #000;
+  padding: 8px 15px;
+  border-radius: 30px;
+  font-size: 0.9rem;
+  font-weight: bold;
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+  opacity: 0;
+  transform: translateY(20px);
+  transition: all 0.5s ease;
+  pointer-events: none;
+}
+
+.view-360-indicator.active {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.view-360-indicator::before {
+  content: '';
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: #fff;
+  display: inline-block;
+  animation: pulse 1.5s infinite;
+}
+
+/* Frame styling with 360-degree enhancement */
+.carpool-frame {
+  border: 2px solid #D4AF37;
+  border-radius: 20px;
+  padding: 2rem 1.5rem;
+  margin: 1rem auto;
+  max-width: 1400px;
+  background: rgba(0, 0, 0, 0.4);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5), 0 0 20px rgba(212, 175, 55, 0.1);
+  overflow: hidden;
+  position: relative;
+  backdrop-filter: blur(10px);
+  perspective: 1500px; /* Add perspective for 3D effect */
+  transform-style: preserve-3d; /* Enable 3D transformations */
+  transition: transform 0.5s ease;
+}
+
+.carpool-frame::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(circle at center, rgba(212, 175, 55, 0.08) 0%, transparent 70%);
+  pointer-events: none;
+  animation: pulse 4s infinite;
+}
+
+@keyframes pulse {
+  0% { opacity: 0.5; }
+  50% { opacity: 0.8; }
+  100% { opacity: 0.5; }
+}
+
+/* Header styling */
+.carpool-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 1;
+}
+
+.carpool-header {
+  text-align: center;
+  margin-bottom: 2rem;
+  position: relative;
+}
+
+.carpool-subtitle {
+  font-size: 1rem;
+  color: #FFD700; /* Gold color for PREMIUM VEHICLES */
+  margin-bottom: 0.5rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-weight: 600;
+}
+
+.carpool-title {
+  font-size: 3rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+  color: #ffffff;
+}
+
+.title-underline {
+  width: 60px;
+  height: 4px;
+  background-color: #FFD700; /* Gold underline */
+  margin: 0.5rem auto 1.5rem;
+}
+
+.carpool-description {
+  text-align: center;
+  max-width: 800px;
+  margin: 0 auto 3rem;
+  line-height: 1.6;
+  font-size: 1.1rem;
+  color: #e0e0e0;
+}
+
+/* 3D Model container with 360-degree view */
+.model-container {
+  width: 100%;
+  height: 40vh; /* Increased height for better 360 viewing */
+  margin: 0 auto; /* Center the container */
+  border-radius: 10px;
+  overflow: hidden;
+  position: relative;
+  perspective: 1000px; /* Add perspective for 3D effect */
+  transform-style: preserve-3d; /* Preserve 3D transformations */
+}
+
+.model-container::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* 360-degree rotation animation */
+@keyframes rotate360 {
+  0% { transform: rotateY(0deg); }
+  100% { transform: rotateY(360deg); }
+}
+
+/* Apply rotation to model content */
+.model-content {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  transform-style: preserve-3d;
+  transition: transform 0.5s ease;
+  animation: rotate360 30s infinite linear;
+  animation-play-state: paused; /* Initially paused */
+}
+
+.model-container:hover .model-content {
+  animation-play-state: running; /* Play on hover */
+}
+
+/* Car info section */
+.car-info-section {
+  background: rgba(90, 122, 154, 0.1);
+  border: 1px solid #D4AF37;
+  border-radius: 20px;
+  padding: 2rem;
+  margin: 2rem 0;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+  transition: all 0.3s ease;
+}
+
+.car-info-section:hover {
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.7), 0 0 20px rgba(212, 175, 55, 0.2);
+  transform: translateY(-5px);
+}
+
+.section-title {
+  color: #D4AF37;
+  font-size: 1.8rem;
+  font-weight: 700;
+  text-align: center;
+  margin-bottom: 1.5rem;
+  position: relative;
+}
+
+.section-title::after {
+  content: '';
+  position: absolute;
+  bottom: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80px;
+  height: 3px;
+  background: linear-gradient(90deg, transparent, #D4AF37, transparent);
+}
+
+.section-content {
+  color: #fff;
+  font-size: 1.1rem;
+  line-height: 1.8;
+  text-align: center;
+}
+
+/* Vehicle cards styling */
+.vehicle-cards-container {
+  display: flex;
+  justify-content: space-between;
+  gap: 1.5rem;
+  margin-top: 2rem;
+  flex-wrap: wrap;
+}
+
+.vehicle-card {
+  flex: 1;
+  min-width: 300px;
+  background-color: rgba(20, 20, 20, 0.7);
+  border-radius: 8px;
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  border: 1px solid rgba(212, 175, 55, 0.3);
+  backdrop-filter: blur(5px);
+}
+
+.vehicle-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3), 0 0 15px rgba(212, 175, 55, 0.2);
+  border-color: rgba(212, 175, 55, 0.5);
+}
+
+.vehicle-image-container {
+  width: 100%;
+  height: 300px;
+  overflow: hidden;
+}
+
+.vehicle-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+.vehicle-card:hover .vehicle-image {
+  transform: scale(1.05);
+}
+
+.vehicle-title {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: #D4AF37; /* Gold color for vehicle titles - matching main page */
+  text-align: center;
+  margin: 1rem 0 0.5rem;
+}
+
+.vehicle-link {
+  display: block;
+  text-align: center;
+  color: #e0e0e0;
+  text-decoration: none;
+  padding: 0.5rem;
+  margin-bottom: 1rem;
+  font-size: 0.9rem;
+  transition: color 0.3s ease;
+}
+
+.vehicle-link:hover {
+  color: #D4AF37;
+}
+
+/* Info Section Styling */
+.carpool-info-section {
+  margin-top: 4rem;
+  padding: 2rem;
+  background-color: rgba(20, 20, 20, 0.7);
+  border-radius: 10px;
+  border: 1px solid rgba(212, 175, 55, 0.3);
+  backdrop-filter: blur(5px);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+}
+
+.info-section-title {
+  font-size: 2rem;
+  font-weight: 600;
+  color: #D4AF37;
+  text-align: center;
+  margin-bottom: 2rem;
+  position: relative;
+}
+
+.info-section-title::after {
+  content: '';
+  position: absolute;
+  bottom: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80px;
+  height: 3px;
+  background: linear-gradient(90deg, transparent, #D4AF37, transparent);
+}
+
+.info-features {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+  justify-content: space-between;
+}
+
+.info-feature {
+  flex: 1;
+  min-width: 300px;
+  padding: 1.5rem;
+  background-color: rgba(30, 30, 30, 0.5);
+  border-radius: 8px;
+  border: 1px solid rgba(212, 175, 55, 0.2);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  backdrop-filter: blur(5px);
+}
+
+.info-feature:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3), 0 0 15px rgba(212, 175, 55, 0.2);
+  border-color: rgba(212, 175, 55, 0.4);
+}
+
+.feature-icon {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 1rem;
+}
+
+.icon-circle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color: #D4AF37;
+  color: #000;
+  font-size: 1.2rem;
+  font-weight: bold;
+  box-shadow: 0 0 15px rgba(212, 175, 55, 0.3);
+}
+
+.feature-title {
+  font-size: 1.3rem;
+  font-weight: 600;
+  color: #D4AF37;
+  margin-bottom: 1rem;
+  text-align: center;
+}
+
+.feature-description {
+  color: #e0e0e0;
+  line-height: 1.6;
+  text-align: center;
+}
+
+/* Service Details Styling */
+.carpool-service-details {
+  margin-top: 4rem;
+  padding: 2rem;
+  background-color: rgba(20, 20, 20, 0.7);
+  border-radius: 10px;
+  border: 1px solid rgba(212, 175, 55, 0.3);
+  backdrop-filter: blur(5px);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+}
+
+.service-section-title {
+  font-size: 2rem;
+  font-weight: 600;
+  color: #D4AF37;
+  text-align: center;
+  margin-bottom: 2rem;
+  position: relative;
+}
+
+.service-section-title::after {
+  content: '';
+  position: absolute;
+  bottom: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80px;
+  height: 3px;
+  background: linear-gradient(90deg, transparent, #D4AF37, transparent);
+}
+
+.service-types {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 1.5rem;
+}
+
+.service-type {
+  padding: 1.5rem;
+  background-color: rgba(30, 30, 30, 0.5);
+  border-radius: 8px;
+  border: 1px solid rgba(212, 175, 55, 0.2);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  backdrop-filter: blur(5px);
+}
+
+.service-type:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3), 0 0 15px rgba(212, 175, 55, 0.2);
+  border-color: rgba(212, 175, 55, 0.4);
+}
+
+.service-type-title {
+  font-size: 1.3rem;
+  font-weight: 600;
+  color: #D4AF37;
+  margin-bottom: 1rem;
+  text-align: center;
+}
+
+.service-type-description {
+  color: #e0e0e0;
+  line-height: 1.6;
+  text-align: center;
+}
+
+/* Booking Section Styling */
+.booking-section {
+  margin-top: 4rem;
+  margin-bottom: 2rem;
+  padding: 3rem 2rem;
+  background-color: rgba(20, 20, 20, 0.7);
+  border-radius: 10px;
+  border: 1px solid rgba(212, 175, 55, 0.3);
+  text-align: center;
+  backdrop-filter: blur(5px);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+}
+
+.booking-title {
+  font-size: 2rem;
+  font-weight: 600;
+  color: #D4AF37;
+  margin-bottom: 1rem;
+}
+
+.booking-description {
+  color: #e0e0e0;
+  font-size: 1.1rem;
+  line-height: 1.6;
+  max-width: 600px;
+  margin: 0 auto 2rem;
+}
+
+.booking-button {
+  background-color: transparent;
+  color: #D4AF37;
+  font-size: 1.1rem;
+  font-weight: 600;
+  padding: 0.8rem 2rem;
+  border: 2px solid #D4AF37;
+  border-radius: 50px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.booking-button:hover {
+  background-color: rgba(212, 175, 55, 0.1);
+  transform: translateY(-3px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3), 0 0 15px rgba(212, 175, 55, 0.3);
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Main large image with 360 view */
+.modern-gallery-main {
+  width: 90%;
+  margin: 0 auto;
+  height: auto;
+  border-radius: 8px;
+  overflow: hidden;
+  position: relative;
+  cursor: move; /* Indicate draggable for 360 rotation */
+  background-color: #0a0a0a;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  border: 1px solid rgba(212, 175, 55, 0.2);
+  transform-style: preserve-3d; /* Enable 3D transformations */
+}
+
+.modern-gallery-main::after {
+  content: '360°';
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
+  background: rgba(212, 175, 55, 0.7);
+  color: #000;
+  padding: 5px 10px;
+  border-radius: 20px;
+  font-size: 0.8rem;
+  font-weight: bold;
+  z-index: 2;
+  animation: pulse 2s infinite;
+}
+
+.modern-gallery-main img {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+  max-height: 650px;
+  padding: 4px;
+  transform-style: preserve-3d; /* Enable 3D transformations */
+}
+
+.modern-gallery-main:hover img {
+  transform: scale(1.02);
+}
+
+/* 360 rotation effect */
+.gallery-360-view {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  transform-style: preserve-3d;
+  transition: transform 0.8s cubic-bezier(0.215, 0.61, 0.355, 1);
+}
+
+.modern-gallery-main:hover .gallery-360-view {
+  animation: autoRotate 15s infinite linear;
+}
+
+@keyframes autoRotate {
+  from { transform: rotateY(0deg); }
+  to { transform: rotateY(360deg); }
+}
+
+/* 360 Controls and Thumbnails */
+.modern-gallery-controls {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  margin: 1rem auto;
+  width: 90%;
+}
+
+.rotate-control {
+  background: rgba(212, 175, 55, 0.2);
+  border: 1px solid #D4AF37;
+  color: #D4AF37;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-size: 1.2rem;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+}
+
+.rotate-control:hover {
+  background: rgba(212, 175, 55, 0.4);
+  transform: scale(1.1);
+}
+
+/* Thumbnails row with 3D effect */
+.modern-gallery-thumbnails {
+  display: flex;
+  justify-content: center;
+  gap: 0.5rem;
+  margin-top: 0.5rem;
+  flex-wrap: wrap;
+  width: 90%;
+  margin-left: auto;
+  margin-right: auto;
+  perspective: 600px;
+}
+
+.modern-gallery-thumb {
+  width: 120px;
+  height: 90px;
+  border-radius: 4px;
+  overflow: hidden;
+  cursor: pointer;
+  border: 2px solid transparent;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #0a0a0a;
+  border: 1px solid rgba(212, 175, 55, 0.1);
+  padding: 2px;
+  transform-style: preserve-3d;
+}
+
+.modern-gallery-thumb.active {
+  border-color: #D4AF37;
+  transform: translateZ(10px);
+  box-shadow: 0 5px 15px rgba(212, 175, 55, 0.3);
+}
+
+.modern-gallery-thumb:hover {
+  transform: translateY(-2px) rotateY(10deg);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+.modern-gallery-thumb img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.modern-gallery-thumb:hover img {
+  transform: scale(1.1);
+}
+
+/* Specifications styling */
+.specs-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+}
+
+.specs-category {
+  margin-bottom: 1.5rem;
+}
+
+.specs-category-title {
+  color: #D4AF37;
+  font-size: 1.3rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+  position: relative;
+  padding-left: 1.5rem;
+}
+
+.specs-category-title::before {
+  content: '•';
+  position: absolute;
+  left: 0;
+  color: #D4AF37;
+  font-size: 1.5rem;
+}
+
+.specs-list {
+  list-style: none;
+  padding: 0;
+}
+
+.specs-item {
+  display: flex;
+  align-items: center;
+  margin-bottom: 0.8rem;
+  color: #fff;
+  font-size: 1rem;
+}
+
+.specs-item-icon {
+  color: #D4AF37;
+  margin-right: 0.8rem;
+  font-size: 0.8rem;
+}
+
+/* CTA section */
+.cta-container {
+  margin: 3rem 0;
+  text-align: center;
+}
+
+.cta-button {
+  display: inline-block;
+  background: transparent;
+  color: #D4AF37;
+  font-size: 1.1rem;
+  font-weight: 600;
+  padding: 1rem 2.5rem;
+  border: 2px solid #D4AF37;
+  border-radius: 50px;
+  transition: all 0.3s ease;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+}
+
+.cta-button::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(212, 175, 55, 0.2), transparent);
+  transition: all 0.5s ease;
+  z-index: -1;
+}
+
+.cta-button:hover {
+  background: rgba(212, 175, 55, 0.1);
+  box-shadow: 0 0 20px rgba(212, 175, 55, 0.5);
+  transform: translateY(-3px);
+}
+
+.cta-button:hover::before {
+  left: 100%;
+}
+
+/* Modal styling */
+.modal-gallery-container {
+  background-color: #0a0a0a;
+  border-radius: 10px;
+  padding: 20px;
+  max-width: 90vw;
+  width: 100%;
+  max-height: 90vh;
+  overflow-y: auto;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.7), 0 0 20px rgba(212, 175, 55, 0.3);
+  border: 1px solid #D4AF37;
+}
+
+.modal-close-btn {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: rgba(0, 0, 0, 0.7);
+  color: #D4AF37;
+  border: 1px solid #D4AF37;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  z-index: 10;
+}
+
+.modal-close-btn:hover {
+  background: rgba(212, 175, 55, 0.2);
+  transform: scale(1.1);
+}
+
+/* Responsive adjustments */
+@media (max-width: 992px) {
+  .vehicle-cards-container {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .vehicle-card {
+    width: 100%;
+    max-width: 500px;
+    margin-bottom: 1.5rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .carpool-container {
+    padding: 3rem 1rem;
+  }
+
+  .carpool-title {
+    font-size: 2.5rem;
+  }
+
+  .carpool-description {
+    font-size: 1rem;
+    max-width: 95%;
+  }
+
+  .vehicle-image-container {
+    height: 180px;
+  }
+
+  .info-section-title,
+  .service-section-title,
+  .booking-title {
+    font-size: 1.8rem;
+  }
+
+  .info-feature,
+  .service-type {
+    min-width: 100%;
+    margin-bottom: 1rem;
+  }
+
+  .feature-title,
+  .service-type-title {
+    font-size: 1.2rem;
+  }
+
+  .feature-description,
+  .service-type-description,
+  .booking-description {
+    font-size: 0.95rem;
+  }
+
+  .booking-button {
+    font-size: 1rem;
+    padding: 0.7rem 1.8rem;
+  }
+
+  .carpool-info-section,
+  .carpool-service-details,
+  .booking-section {
+    padding: 1.5rem;
+  }
+}

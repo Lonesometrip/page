@@ -1,0 +1,425 @@
+/* Carpool Page Styling - Matching Main Page Design */
+
+/* Section header styling */
+.section-header {
+  text-align: center;
+  margin-bottom: 2rem;
+  position: relative;
+  z-index: 1;
+}
+
+.title-underline {
+  width: 60px;
+  height: 4px;
+  background-color: #D4AF37; /* Gold underline */
+  margin: 0.5rem auto 1.5rem;
+}
+
+.section-description {
+  text-align: center;
+  max-width: 800px;
+  margin: 0 auto 3rem;
+  line-height: 1.6;
+  font-size: 1.1rem;
+  color: #e0e0e0;
+}
+
+/* Vehicle grid styling */
+.vehicle-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+  margin: 3rem 0;
+}
+
+.vehicle-card-container {
+  perspective: 1000px;
+}
+
+.vehicle-card {
+  background-color: rgba(10, 10, 10, 0.9); /* Darker background */
+  border-radius: 10px;
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+  border: 2px solid rgba(212, 175, 55, 0.5); /* Thicker gold border */
+  backdrop-filter: blur(5px);
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  transform-style: preserve-3d;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.4), 0 0 10px rgba(212, 175, 55, 0.1); /* Initial gold glow */
+}
+
+.vehicle-card:hover {
+  transform: translateY(-5px) rotateX(5deg);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5), 0 0 20px rgba(212, 175, 55, 0.3); /* Enhanced gold glow on hover */
+  border-color: rgba(212, 175, 55, 0.8); /* More vibrant gold border on hover */
+}
+
+.vehicle-image-container {
+  width: 100%;
+  height: 250px;
+  overflow: hidden;
+}
+
+.vehicle-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+.vehicle-card:hover .vehicle-image {
+  transform: scale(1.05);
+}
+
+.vehicle-content {
+  padding: 1.8rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex-grow: 1;
+  background: linear-gradient(to bottom, rgba(10, 10, 10, 0.95), rgba(15, 15, 15, 0.9)); /* Darker gradient background */
+}
+
+.vehicle-title {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: #D4AF37; /* Gold color for vehicle titles */
+  text-align: center;
+  margin-bottom: 1.2rem;
+  position: relative;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5); /* Text shadow for better readability */
+}
+
+.vehicle-title::after {
+  content: '';
+  position: absolute;
+  bottom: -8px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 50px;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, #D4AF37, transparent);
+  box-shadow: 0 0 8px rgba(212, 175, 55, 0.5); /* Glow effect for the underline */
+}
+
+.vehicle-link {
+  display: inline-block;
+  color: #D4AF37; /* Gold text color */
+  text-decoration: none;
+  padding: 0.6rem 1.8rem;
+  margin-top: auto;
+  font-size: 0.95rem;
+  font-weight: 500;
+  transition: all 0.3s ease;
+  border: 2px solid rgba(212, 175, 55, 0.6); /* Thicker gold border */
+  border-radius: 50px;
+  background-color: rgba(10, 10, 10, 0.7); /* Dark background */
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3), 0 0 5px rgba(212, 175, 55, 0.2); /* Initial subtle glow */
+}
+
+.vehicle-link:hover {
+  color: #FFFFFF; /* White text on hover */
+  background-color: rgba(212, 175, 55, 0.2); /* More gold background on hover */
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.4), 0 0 15px rgba(212, 175, 55, 0.4); /* Enhanced glow on hover */
+  transform: translateY(-2px); /* Slight lift effect */
+  border-color: rgba(212, 175, 55, 0.9); /* More vibrant gold border */
+}
+
+/* Features section styling */
+.features-section {
+  margin: 5rem 0;
+  padding: 2rem;
+  background-color: rgba(20, 20, 20, 0.7);
+  border-radius: 10px;
+  border: 1px solid rgba(212, 175, 55, 0.3);
+  backdrop-filter: blur(5px);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+}
+
+.section-title {
+  font-size: 2rem;
+  font-weight: 600;
+  color: #D4AF37;
+  text-align: center;
+  margin-bottom: 2rem;
+  position: relative;
+}
+
+.section-title::after {
+  content: '';
+  position: absolute;
+  bottom: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80px;
+  height: 3px;
+  background: linear-gradient(90deg, transparent, #D4AF37, transparent);
+}
+
+.features-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+  margin-top: 3rem;
+}
+
+.feature-card {
+  padding: 2.2rem;
+  background-color: rgba(10, 10, 10, 0.85); /* Darker background */
+  border-radius: 10px;
+  border: 2px solid rgba(212, 175, 55, 0.4); /* Thicker gold border */
+  transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+  backdrop-filter: blur(5px);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.4), 0 0 10px rgba(212, 175, 55, 0.15); /* Initial gold glow */
+}
+
+.feature-card:hover {
+  transform: translateY(-7px);
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.5), 0 0 20px rgba(212, 175, 55, 0.3); /* Enhanced gold glow on hover */
+  border-color: rgba(212, 175, 55, 0.7); /* More vibrant gold border on hover */
+}
+
+.feature-icon {
+  margin-bottom: 1.5rem;
+}
+
+.icon-circle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 60px; /* Slightly larger */
+  height: 60px; /* Slightly larger */
+  border-radius: 50%;
+  background-color: rgba(10, 10, 10, 0.9); /* Darker background */
+  color: #D4AF37;
+  font-size: 1.6rem;
+  font-weight: bold;
+  border: 3px solid #D4AF37; /* Thicker gold border */
+  box-shadow: 0 0 20px rgba(212, 175, 55, 0.3); /* Enhanced gold glow */
+  position: relative;
+  transition: all 0.3s ease;
+}
+
+.icon-circle::after {
+  content: '';
+  position: absolute;
+  top: -3px;
+  left: -3px;
+  right: -3px;
+  bottom: -3px;
+  border-radius: 50%;
+  background: transparent;
+  border: 1px solid rgba(212, 175, 55, 0.3);
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+    opacity: 0.8;
+  }
+  70% {
+    transform: scale(1.1);
+    opacity: 0;
+  }
+  100% {
+    transform: scale(1.2);
+    opacity: 0;
+  }
+}
+
+.feature-title {
+  font-size: 1.4rem;
+  font-weight: 600;
+  color: #D4AF37;
+  margin-bottom: 1.2rem;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5); /* Text shadow for better readability */
+  position: relative;
+}
+
+.feature-title::after {
+  content: '';
+  position: absolute;
+  bottom: -8px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 40px;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, #D4AF37, transparent);
+  box-shadow: 0 0 8px rgba(212, 175, 55, 0.5); /* Glow effect for the underline */
+}
+
+.feature-description {
+  color: #e0e0e0;
+  line-height: 1.6;
+}
+
+/* CTA section styling */
+.cta-section {
+  margin: 5rem 0;
+  padding: 3.5rem 2.5rem;
+  background-color: rgba(10, 10, 10, 0.9); /* Darker background */
+  border-radius: 10px;
+  border: 2px solid rgba(212, 175, 55, 0.5); /* Thicker gold border */
+  text-align: center;
+  backdrop-filter: blur(5px);
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.6), 0 0 20px rgba(212, 175, 55, 0.2); /* Enhanced shadow with gold glow */
+  position: relative;
+  overflow: hidden;
+}
+
+/* Gold accent in the corners */
+.cta-section::before,
+.cta-section::after {
+  content: '';
+  position: absolute;
+  width: 100px;
+  height: 100px;
+  background: radial-gradient(circle, rgba(212, 175, 55, 0.15) 0%, rgba(212, 175, 55, 0) 70%);
+}
+
+.cta-section::before {
+  top: -20px;
+  left: -20px;
+}
+
+.cta-section::after {
+  bottom: -20px;
+  right: -20px;
+}
+
+.cta-title {
+  font-size: 2.2rem;
+  font-weight: 700;
+  color: #D4AF37;
+  margin-bottom: 1.2rem;
+  text-shadow: 0 2px 5px rgba(0, 0, 0, 0.5); /* Text shadow for better readability */
+  position: relative;
+  display: inline-block;
+}
+
+.cta-title::after {
+  content: '';
+  position: absolute;
+  bottom: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80px;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, #D4AF37, transparent);
+  box-shadow: 0 0 10px rgba(212, 175, 55, 0.6); /* Glow effect for the underline */
+}
+
+.cta-description {
+  color: #e0e0e0;
+  font-size: 1.15rem;
+  line-height: 1.7;
+  max-width: 650px;
+  margin: 1.5rem auto 2.5rem;
+}
+
+.cta-button {
+  display: inline-block;
+  background-color: rgba(10, 10, 10, 0.8); /* Dark background */
+  color: #D4AF37;
+  font-size: 1.15rem;
+  font-weight: 600;
+  padding: 1rem 2.5rem;
+  border: 2px solid #D4AF37; /* Gold border */
+  border-radius: 50px;
+  cursor: pointer;
+  transition: all 0.4s ease;
+  position: relative;
+  overflow: hidden;
+  text-decoration: none;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3), 0 0 10px rgba(212, 175, 55, 0.2); /* Initial subtle glow */
+  letter-spacing: 0.5px;
+}
+
+.cta-button:hover {
+  color: #FFFFFF; /* White text on hover */
+  background-color: rgba(212, 175, 55, 0.25); /* More gold background on hover */
+  transform: translateY(-5px);
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.4), 0 0 20px rgba(212, 175, 55, 0.4); /* Enhanced glow on hover */
+  border-color: rgba(212, 175, 55, 0.9); /* More vibrant gold border */
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .vehicle-grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+
+  .features-grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+
+  .section-title, .cta-title {
+    font-size: 1.8rem;
+  }
+
+  .section-description, .cta-description {
+    font-size: 1rem;
+    padding: 0 1rem;
+  }
+
+  .features-section, .cta-section {
+    padding: 2rem 1.5rem;
+    margin: 3rem 1rem;
+  }
+
+  .cta-button {
+    width: 100%;
+    max-width: 300px;
+  }
+}
+
+/* Small mobile devices */
+@media (max-width: 480px) {
+  .vehicle-image-container {
+    height: 200px;
+  }
+
+  .vehicle-content {
+    padding: 1.2rem;
+  }
+
+  .vehicle-title {
+    font-size: 1.3rem;
+  }
+
+  .feature-card {
+    padding: 1.5rem;
+  }
+
+  .icon-circle {
+    width: 50px;
+    height: 50px;
+    font-size: 1.4rem;
+  }
+
+  .feature-title {
+    font-size: 1.2rem;
+  }
+
+  .cta-title {
+    font-size: 1.6rem;
+  }
+
+  .cta-description {
+    font-size: 0.95rem;
+  }
+
+  .cta-button {
+    font-size: 1rem;
+    padding: 0.8rem 1.5rem;
+  }
+}
