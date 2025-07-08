@@ -1,6 +1,0 @@
-# www.premium-chauffeur.com robots.txt
-User-agent: *
-Allow: /
-
-# Sitemap
-Sitemap: https://www.premium-chauffeur.com/sitemap.xml
