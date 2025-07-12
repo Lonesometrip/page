@@ -1,0 +1,872 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us | Premium Chauffeur</title>
+    <script src="https://cdn.tailwindcss.com?plugins=typography"></script>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="social-bubble.css">
+    <link rel="stylesheet" href="language.css">
+    <link rel="stylesheet" href="business-card.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Cairo:wght@300;400;500;600;700&family=Amiri:wght@400;700&family=Noto+Sans+Arabic:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+</head>
+<body class="bg-brand-dark text-brand-light font-sans antialiased" data-page="contact">
+
+    <!-- Header -->
+    <header id="main-header" class="fixed top-0 left-0 right-0 z-50 navbar-transparent transition-all duration-300">
+        <nav class="container mx-auto px-6 py-4">
+            <div class="flex items-center justify-between">
+                <!-- Logo -->
+                <a href="index.html" class="flex items-center space-x-3 hover:opacity-80 transition-opacity">
+                    <div class="w-10 h-10 flex items-center justify-center">
+                        <img src="assets/logo.svg" alt="Premium Chauffeur Logo" class="w-8 h-8 rotating-logo">
+                    </div>
+                    <div class="text-xl font-bold text-brand-gold">
+                        PREMIUM CHAUFFEUR
+                    </div>
+                </a>
+
+                <!-- Desktop Navigation -->
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="services.html" class="nav-link" data-page="services" data-translate="nav.services">
+                        Services
+                    </a>
+                    <a href="fleet.html" class="nav-link" data-page="fleet" data-translate="nav.fleet">
+                        Fleet
+                    </a>
+                    <a href="destinations.html" class="nav-link" data-page="destinations" data-translate="nav.destinations">
+                        Destinations
+                    </a>
+                    <a href="Tourism_Packages.html" class="nav-link" data-page="Tourism_Packages" data-translate="nav.tourism_packages">
+                        Tourism
+                    </a>
+                    <a href="contact.html" class="nav-link" data-page="contact" data-translate="nav.contact">
+                        Contact
+                    </a>
+                    <a href="booking-form.html" class="btn btn-primary text-xs px-4 py-2" data-translate="nav.book_now">
+                        Book Now
+                    </a>
+                </div>
+
+                <!-- Mobile Menu Button -->
+                <button id="mobile-menu-btn" class="md:hidden text-brand-light hover:text-brand-gold transition-colors">
+                    <i data-lucide="menu" class="w-6 h-6"></i>
+                </button>
+            </div>
+
+            <!-- Mobile Navigation -->
+            <div id="mobile-menu" class="md:hidden mt-4 pb-4 border-t border-gray-800/50 hidden">
+                <div class="flex flex-col space-y-4 pt-4">
+                    <a href="services.html" class="mobile-nav-link" data-page="services" data-translate="nav.services">
+                        Services
+                    </a>
+                    <a href="fleet.html" class="mobile-nav-link" data-page="fleet" data-translate="nav.fleet">
+                        Fleet
+                    </a>
+                    <a href="destinations.html" class="mobile-nav-link" data-page="destinations" data-translate="nav.destinations">
+                        Destinations
+                    </a>
+                    <a href="Tourism_Packages.html" class="mobile-nav-link" data-page="Tourism_Packages" data-translate="nav.tourism_packages">
+                        Tourism
+                    </a>
+                    <a href="contact.html" class="mobile-nav-link" data-page="contact" data-translate="nav.contact">
+                        Contact
+                    </a>
+
+                    <!-- Mobile Language Selector -->
+                    <div class="border-t border-gray-800/50 pt-4 mt-4">
+                        <div class="text-sm text-gray-400 mb-2" data-translate="nav.language">Language</div>
+                        <div class="flex flex-wrap gap-2">
+                            <button onclick="selectLanguage('en')" class="mobile-lang-btn px-2 py-1 rounded bg-gray-800 hover:bg-gray-700 transition-colors text-xs text-white">
+                                EN
+                            </button>
+                            <button onclick="selectLanguage('ar')" class="mobile-lang-btn px-2 py-1 rounded bg-gray-800 hover:bg-gray-700 transition-colors text-xs text-white">
+                                AR
+                            </button>
+                        </div>
+                    </div>
+
+                    <a href="booking-form.html" class="btn btn-primary text-sm px-6 py-2 mt-4 inline-block text-center" data-translate="nav.book_now">
+                        Book Now
+                    </a>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <div id="app-container">
+        <main>
+            <!-- Contact Hero Section -->
+            <section class="py-8 bg-brand-dark dot-grid-bg">
+                <div class="container mx-auto px-6">
+                    <div class="text-center mb-16">
+                        <p class="text-brand-gold text-lg mb-4 font-semibold tracking-wider uppercase" data-translate="contact.heroSubtitle">CONTACT US</p>
+                        <h1 class="section-title mb-6" data-translate="contact.heroTitle">Get In Touch</h1>
+                        <div class="w-24 h-1 bg-brand-gold mx-auto mb-8"></div>
+                        <p class="section-subtitle max-w-4xl mx-auto mb-8" data-translate="contact.heroDescription">
+                            Contact us today to arrange your premium transportation. Our team is available 24/7 to assist you with all your chauffeur service needs.
+                        </p>
+
+                        <!-- Additional Information -->
+                        <div class="max-w-5xl mx-auto">
+                            <p class="text-gray-300 text-lg leading-relaxed mb-6" data-translate="contact.heroExtendedDescription">
+                                Whether you need executive transportation for business meetings, luxury airport transfers, special event chauffeur services, or personalized city tours, our professional team is ready to exceed your expectations. We pride ourselves on punctuality, discretion, and delivering an unparalleled travel experience.
+                            </p>
+
+                            <!-- Service Highlights -->
+                            <div class="grid md:grid-cols-3 gap-8 mt-12">
+                                <div class="text-center">
+                                    <div class="bg-brand-gold p-4 rounded-full w-16 h-16 mx-auto mb-4 flex items-center justify-center">
+                                        <i data-lucide="clock" class="w-8 h-8 text-brand-dark"></i>
+                                    </div>
+                                    <h3 class="text-white font-semibold mb-2" data-translate="contact.availability24">24/7 Availability</h3>
+                                    <p class="text-gray-400 text-sm" data-translate="contact.availabilityDesc">Round-the-clock service for all your transportation needs</p>
+                                </div>
+
+                                <div class="text-center">
+                                    <div class="bg-brand-gold p-4 rounded-full w-16 h-16 mx-auto mb-4 flex items-center justify-center">
+                                        <i data-lucide="phone" class="w-8 h-8 text-brand-dark"></i>
+                                    </div>
+                                    <h3 class="text-white font-semibold mb-2" data-translate="contact.instantResponse">Instant Response</h3>
+                                    <p class="text-gray-400 text-sm" data-translate="contact.responseDesc">Quick replies to all inquiries and booking requests</p>
+                                </div>
+
+                                <div class="text-center">
+                                    <div class="bg-brand-gold p-4 rounded-full w-16 h-16 mx-auto mb-4 flex items-center justify-center">
+                                        <i data-lucide="shield-check" class="w-8 h-8 text-brand-dark"></i>
+                                    </div>
+                                    <h3 class="text-white font-semibold mb-2" data-translate="contact.professionalService">Professional Service</h3>
+                                    <p class="text-gray-400 text-sm" data-translate="contact.professionalDesc">Experienced chauffeurs and premium vehicle fleet</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Contact Section -->
+            <section class="py-20 md:py-28 bg-brand-dark-gray dot-grid-bg">
+                <div class="container mx-auto px-6">
+                    <div class="grid lg:grid-cols-7 md:grid-cols-1 gap-12 max-w-7xl mx-auto">
+                        <!-- Contact Form -->
+                        <div class="lg:col-span-3 contact-card rounded-lg p-6">
+                            <h3 class="text-xl font-bold text-white mb-4" data-translate="contact.formTitle">Send us a Message</h3>
+                            <p class="text-gray-300 text-sm mb-6 leading-relaxed" data-translate="contact.formDescription">
+                                Ready to experience premium chauffeur services? Share your transportation needs with us and we'll craft the perfect journey for you. Whether it's airport transfers, business meetings, special events, or city tours - our team is here to provide you with exceptional service tailored to your requirements.
+                            </p>
+
+                            <form id="contact-form" action="https://formspree.io/f/myzerjwz" method="POST" class="space-y-4">
+                                <div>
+                                    <label for="name" class="block text-brand-gold text-sm font-medium mb-2" data-translate="contact.nameLabel">Your Name</label>
+                                    <input type="text" id="name" name="name" required
+                                           class="w-full bg-gray-800 text-white border border-gray-600 rounded-md py-2 px-3 focus:outline-none focus:ring-2 focus:ring-brand-gold focus:border-transparent transition-all duration-300"
+                                           data-translate-placeholder="contact.namePlaceholder" placeholder="Enter your full name">
+                                </div>
+                                
+                                <div>
+                                    <label for="email" class="block text-brand-gold text-sm font-medium mb-2" data-translate="contact.emailLabel">Email Address</label>
+                                    <input type="email" id="email" name="email" required
+                                           class="w-full bg-gray-800 text-white border border-gray-600 rounded-md py-2 px-3 focus:outline-none focus:ring-2 focus:ring-brand-gold focus:border-transparent transition-all duration-300"
+                                           data-translate-placeholder="contact.emailPlaceholder" placeholder="Enter your email address">
+                                </div>
+
+                                <div>
+                                    <label for="phone" class="block text-brand-gold text-sm font-medium mb-2" data-translate="contact.phoneLabel">Phone Number</label>
+                                    <input type="tel" id="phone" name="phone"
+                                           class="w-full bg-gray-800 text-white border border-gray-600 rounded-md py-2 px-3 focus:outline-none focus:ring-2 focus:ring-brand-gold focus:border-transparent transition-all duration-300"
+                                           data-translate-placeholder="contact.phonePlaceholder" placeholder="Enter your phone number">
+                                </div>
+
+                                <div>
+                                    <label for="service" class="block text-brand-gold text-sm font-medium mb-2" data-translate="contact.serviceLabel">Service Type</label>
+                                    <select id="service" name="service"
+                                            class="w-full bg-gray-800 text-white border border-gray-600 rounded-md py-2 px-3 focus:outline-none focus:ring-2 focus:ring-brand-gold focus:border-transparent transition-all duration-300">
+                                        <option value="" data-translate="contact.selectService">Select a service</option>
+                                        <option value="executive" data-translate="contact.executiveChauffeur">Executive Chauffeur</option>
+                                        <option value="vip" data-translate="contact.vipTransportation">VIP Transportation</option>
+                                        <option value="airport" data-translate="contact.airportTransfer">Airport Transfer</option>
+                                        <option value="tourism" data-translate="contact.tourismServices">Tourism Services</option>
+                                        <option value="other" data-translate="contact.other">Other</option>
+                                    </select>
+                                </div>
+                                
+                                <div>
+                                    <label for="message" class="block text-brand-gold text-sm font-medium mb-2" data-translate="contact.messageLabel">Message</label>
+                                    <textarea id="message" name="message" rows="8" required
+                                              class="w-full bg-gray-800 text-white border border-gray-600 rounded-md py-2 px-3 focus:outline-none focus:ring-2 focus:ring-brand-gold focus:border-transparent transition-all duration-300 resize-none"
+                                              data-translate-placeholder="contact.messagePlaceholder" placeholder="Tell us about your transportation needs..."></textarea>
+                                </div>
+                                
+                                <!-- Hidden fields for Formspree -->
+                                <input type="hidden" name="_subject" value="New Contact Form Submission - Premium Chauffeur">
+                                <input type="hidden" name="_next" value="http://localhost:8000/">
+                                <input type="hidden" name="_captcha" value="false">
+                                
+                                <div class="flex gap-4">
+                                    <button type="submit" id="submit-btn" 
+                                            class="flex-1 bg-brand-gold text-brand-dark font-bold py-3 px-6 rounded-md hover:bg-yellow-400 transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl">
+                                        <span id="submit-text"><i data-lucide="mail" class="inline w-4 h-4 mr-2"></i><span data-translate="contact.sendEmail">Send Email</span></span>
+                                        <span id="loading-text" class="hidden" data-translate="contact.sending">Sending...</span>
+                                    </button>
+                                    
+                                    <button type="button" id="whatsapp-btn" 
+                                            class="flex-1 bg-gray-800 text-brand-gold border-2 border-brand-gold font-bold py-3 px-6 rounded-md hover:bg-brand-gold hover:text-brand-dark transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl">
+                                        <i data-lucide="message-circle" class="inline w-4 h-4 mr-2"></i><span data-translate="contact.whatsapp">WhatsApp</span>
+                                    </button>
+                                </div>
+                                
+                                <div id="form-status" class="text-center text-sm hidden"></div>
+                            </form>
+                        </div>
+
+                        <!-- Right Column: Business Card & Contact Information -->
+                        <div class="lg:col-span-4 space-y-6">
+                            <!-- Digital Business Card -->
+                            <div class="contact-card rounded-lg p-4">
+                                <h3 class="text-3xl font-bold text-white mb-6 text-center" data-translate="contact.businessCardTitle">Our Business Card</h3>
+                                <div class="business-card-container mx-auto">
+                                    <div class="business-card">
+                                        <div class="card-face card-front">
+                                            <div class="card-overlay"></div>
+                                        </div>
+                                        <div class="card-face card-back">
+                                            <div class="card-overlay"></div>
+                                        </div>
+                                        <div class="flip-indicator">Flip</div>
+                                    </div>
+                                </div>
+                                <p class="text-gray-400 text-sm text-center mt-4" data-translate="contact.businessCardDesc">
+                                    Click the card to see both sides of our business card
+                                </p>
+                            </div>
+
+                            <!-- Contact Information -->
+                            <div class="contact-card rounded-lg p-8">
+                                <h3 class="text-2xl font-bold text-white mb-6" data-translate="contact.contactInfoTitle">Contact Information</h3>
+                                
+                                <div class="space-y-6">
+                                    <div class="relative pl-20 rtl:pl-0 rtl:pr-20">
+                                        <div class="bg-brand-gold p-3 rounded-full absolute left-0 rtl:left-auto rtl:right-0 top-0">
+                                            <i data-lucide="phone" class="w-5 h-5 text-brand-dark"></i>
+                                        </div>
+                                        <div>
+                                            <h4 class="text-white font-semibold mb-1" data-translate="contact.phoneTitle">Phone</h4>
+                                            <p class="text-gray-300 phone-number">+49 176 31454340</p>
+                                        </div>
+                                    </div>
+
+                                    <div class="relative pl-20 rtl:pl-0 rtl:pr-20">
+                                        <div class="bg-brand-gold p-3 rounded-full absolute left-0 rtl:left-auto rtl:right-0 top-0">
+                                            <i data-lucide="mail" class="w-5 h-5 text-brand-dark"></i>
+                                        </div>
+                                        <div>
+                                            <h4 class="text-white font-semibold mb-1" data-translate="contact.emailTitle">Email</h4>
+                                            <p class="text-gray-300">info@premium-chauffeur.com</p>
+                                        </div>
+                                    </div>
+
+                                    <div class="relative pl-20 rtl:pl-0 rtl:pr-20">
+                                        <div class="bg-brand-gold p-3 rounded-full absolute left-0 rtl:left-auto rtl:right-0 top-0">
+                                            <i data-lucide="clock" class="w-5 h-5 text-brand-dark"></i>
+                                        </div>
+                                        <div>
+                                            <h4 class="text-white font-semibold mb-1" data-translate="contact.availabilityTitle">Availability</h4>
+                                            <p class="text-gray-300" data-translate="contact.availabilityText">24/7 Service Available</p>
+                                        </div>
+                                    </div>
+
+                                    <div class="relative pl-20 rtl:pl-0 rtl:pr-20">
+                                        <div class="bg-brand-gold p-3 rounded-full absolute left-0 rtl:left-auto rtl:right-0 top-0">
+                                            <i data-lucide="map-pin" class="w-5 h-5 text-brand-dark"></i>
+                                        </div>
+                                        <div>
+                                            <h4 class="text-white font-semibold mb-1" data-translate="contact.serviceAreaTitle">Service Area</h4>
+                                            <p class="text-gray-300" data-translate="contact.serviceAreaText">Germany & Surrounding Areas</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+
+                    <!-- Exploration Buttons - Below Both Cards -->
+                    <div class="max-w-7xl mx-auto px-6 mt-12">
+                        <div class="text-center mb-8">
+                            <h3 class="text-2xl font-bold text-white mb-4" data-translate="contact.exploreTitle">Explore Our Services</h3>
+                            <p class="text-gray-300 text-lg max-w-3xl mx-auto" data-translate="contact.exploreDescription">
+                                Discover our premium destinations and tourism packages designed for your perfect journey.
+                            </p>
+                        </div>
+
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+                            <!-- Tourism Button -->
+                            <a href="tourism.html" class="group bg-transparent border-2 border-brand-gold text-brand-gold hover:bg-brand-gold hover:text-brand-dark transition-all duration-300 rounded-lg p-6 text-center transform hover:scale-105 hover:shadow-xl">
+                                <div class="flex items-center justify-center mb-3">
+                                    <i data-lucide="camera" class="w-8 h-8 mr-3"></i>
+                                    <span class="text-xl font-semibold" data-translate="contact.tourismButton">Tourism Packages</span>
+                                </div>
+                                <p class="text-base opacity-80" data-translate="contact.tourismDesc">Luxury travel experiences</p>
+                            </a>
+
+                            <!-- Destinations Button -->
+                            <a href="destinations.html" class="group bg-transparent border-2 border-brand-gold text-brand-gold hover:bg-brand-gold hover:text-brand-dark transition-all duration-300 rounded-lg p-6 text-center transform hover:scale-105 hover:shadow-xl">
+                                <div class="flex items-center justify-center mb-3">
+                                    <i data-lucide="map-pin" class="w-8 h-8 mr-3"></i>
+                                    <span class="text-xl font-semibold" data-translate="contact.destinationsButton">Premium Destinations</span>
+                                </div>
+                                <p class="text-base opacity-80" data-translate="contact.destinationsDesc">Exclusive travel locations</p>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <!-- Footer -->
+        <footer class="bg-brand-dark py-8 border-t border-gray-800">
+            <div class="max-w-7xl mx-auto px-6 lg:px-8">
+                <!-- Main Footer Content -->
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-6">
+                    <!-- Company Info -->
+                    <div class="space-y-4">
+                        <a href="index.html" class="flex items-center gap-3 mb-4 rtl:flex-row-reverse">
+                            <img src="assets/logo.svg" alt="Premium Chauffeur Logo" class="w-8 h-8 rotating-logo rtl:order-2">
+                            <p class="text-white text-lg font-bold tracking-wider uppercase rtl:order-1">
+                                Premium Chauffeur
+                            </p>
+                        </a>
+                        <p class="text-gray-400 text-sm leading-relaxed max-w-md" data-translate="footer.companyDescription">
+                            Experience luxury transportation with our premium chauffeur services. Professional drivers, luxury vehicles, and exceptional service across Germany and Europe.
+                        </p>
+                    </div>
+
+                    <!-- Contact Information -->
+                    <div class="space-y-4">
+                        <h3 class="text-white text-lg font-bold mb-4" data-translate="footer.contactInfo">Contact Info</h3>
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                            <div class="relative pl-8 rtl:pl-0 rtl:pr-8 text-gray-400 text-sm">
+                                <i data-lucide="map-pin" class="w-4 h-4 text-brand-gold flex-shrink-0 absolute left-0 rtl:left-auto rtl:right-0 top-0"></i>
+                                <div>
+                                    <span class="text-white font-medium block" data-translate="footer.address">Address:</span>
+                                    <span data-translate="footer.addressText">Luxusstraße 123, 10115 Berlin, Germany</span>
+                                </div>
+                            </div>
+                            <div class="relative pl-8 rtl:pl-0 rtl:pr-8 text-gray-400 text-sm">
+                                <i data-lucide="phone" class="w-4 h-4 text-brand-gold flex-shrink-0 absolute left-0 rtl:left-auto rtl:right-0 top-0"></i>
+                                <div>
+                                    <span class="text-white font-medium" data-translate="footer.phone">Phone:</span>
+                                    <a href="tel:+4917631454340" class="ml-2 rtl:ml-0 rtl:mr-2 hover:text-brand-gold transition-colors phone-number">+49 176 31454340</a>
+                                </div>
+                            </div>
+                            <div class="relative pl-8 rtl:pl-0 rtl:pr-8 text-gray-400 text-sm">
+                                <i data-lucide="mail" class="w-4 h-4 text-brand-gold flex-shrink-0 absolute left-0 rtl:left-auto rtl:right-0 top-0"></i>
+                                <div>
+                                    <span class="text-white font-medium" data-translate="footer.email">Email:</span>
+                                    <a href="mailto:info@premium-chauffeur.com" class="ml-2 rtl:ml-0 rtl:mr-2 hover:text-brand-gold transition-colors">info@premium-chauffeur.com</a>
+                                </div>
+                            </div>
+                            <div class="relative pl-8 rtl:pl-0 rtl:pr-8 text-gray-400 text-sm">
+                                <i data-lucide="clock" class="w-4 h-4 text-brand-gold flex-shrink-0 absolute left-0 rtl:left-auto rtl:right-0 top-0"></i>
+                                <div>
+                                    <span class="text-white font-medium" data-translate="footer.hours">Hours:</span>
+                                    <span class="ml-2 rtl:ml-0 rtl:mr-2" data-translate="footer.hoursText">24/7 Available</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Enhanced Bottom Section -->
+                <div class="border-t border-gray-800 pt-6">
+                    <div class="flex flex-col lg:flex-row justify-between items-center space-y-4 lg:space-y-0">
+                        <!-- Payment Methods -->
+                        <div class="flex items-center gap-4">
+                            <span class="text-white text-sm font-medium mr-2" data-translate="footer.weAccept">We Accept:</span>
+                            <div class="flex gap-2">
+                                <div class="w-12 h-7 bg-gradient-to-r from-blue-600 to-blue-700 rounded-md flex items-center justify-center shadow-lg border border-blue-500">
+                                    <span class="text-white text-xs font-bold">VISA</span>
+                                </div>
+                                <div class="w-12 h-7 bg-gradient-to-r from-red-600 to-red-700 rounded-md flex items-center justify-center shadow-lg border border-red-500">
+                                    <span class="text-white text-xs font-bold">MC</span>
+                                </div>
+                                <div class="w-12 h-7 bg-gradient-to-r from-blue-800 to-blue-900 rounded-md flex items-center justify-center shadow-lg border border-blue-700">
+                                    <span class="text-white text-xs font-bold">AMEX</span>
+                                </div>
+                                <div class="w-12 h-7 bg-gradient-to-r from-blue-500 to-blue-600 rounded-md flex items-center justify-center shadow-lg border border-blue-400">
+                                    <span class="text-white text-xs font-bold">PP</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Social Media -->
+                        <div class="flex items-center gap-4">
+                            <span class="text-white text-sm font-medium mr-2" data-translate="footer.followUs">Follow Us:</span>
+                            <div class="flex gap-2">
+                                <a href="https://facebook.com" target="_blank" rel="noopener noreferrer"
+                                   class="w-9 h-9 rounded-full bg-gradient-to-r from-gray-800 to-gray-700 flex items-center justify-center hover:from-brand-gold hover:to-yellow-500 hover:text-brand-dark transition-all duration-300 shadow-lg border border-gray-600 hover:border-brand-gold">
+                                    <i data-lucide="facebook" class="w-4 h-4"></i>
+                                </a>
+                                <a href="https://twitter.com" target="_blank" rel="noopener noreferrer"
+                                   class="w-9 h-9 rounded-full bg-gradient-to-r from-gray-800 to-gray-700 flex items-center justify-center hover:from-brand-gold hover:to-yellow-500 hover:text-brand-dark transition-all duration-300 shadow-lg border border-gray-600 hover:border-brand-gold">
+                                    <i data-lucide="twitter" class="w-4 h-4"></i>
+                                </a>
+                                <a href="https://instagram.com" target="_blank" rel="noopener noreferrer"
+                                   class="w-9 h-9 rounded-full bg-gradient-to-r from-gray-800 to-gray-700 flex items-center justify-center hover:from-brand-gold hover:to-yellow-500 hover:text-brand-dark transition-all duration-300 shadow-lg border border-gray-600 hover:border-brand-gold">
+                                    <i data-lucide="instagram" class="w-4 h-4"></i>
+                                </a>
+                                <a href="https://wa.me/4917631454340" target="_blank" rel="noopener noreferrer"
+                                   class="w-9 h-9 rounded-full bg-gradient-to-r from-gray-800 to-gray-700 flex items-center justify-center hover:from-brand-gold hover:to-yellow-500 hover:text-brand-dark transition-all duration-300 shadow-lg border border-gray-600 hover:border-brand-gold">
+                                    <i data-lucide="message-circle" class="w-4 h-4"></i>
+                                </a>
+                            </div>
+                        </div>
+
+                        <!-- Copyright and Legal -->
+                        <div class="flex flex-col lg:flex-row items-center gap-4">
+                            <div class="flex flex-wrap gap-4 text-center">
+                                <a href="#" class="text-gray-400 text-xs hover:text-brand-gold transition-colors duration-300" data-translate="footer.privacyPolicy">Privacy Policy</a>
+                                <a href="#" class="text-gray-400 text-xs hover:text-brand-gold transition-colors duration-300" data-translate="footer.termsOfService">Terms of Service</a>
+                                <a href="#" class="text-gray-400 text-xs hover:text-brand-gold transition-colors duration-300" data-translate="footer.imprint">Imprint</a>
+                            </div>
+                            <div class="text-center">
+                                <p class="text-gray-400 text-xs" data-translate="footer.copyright">
+                                    &copy; <span id="current-year">2025</span> Premium Chauffeur. All Rights Reserved.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </footer>
+    </div>
+
+    <!-- Chatbot -->
+    <div id="chatbot-container" class="chatbot-card fixed bottom-5 right-5 w-80 md:w-96 rounded-lg transform translate-y-[calc(100%+20px)] opacity-0 transition-all duration-500 ease-in-out z-50">
+        <div class="flex items-center justify-between p-4 bg-transparent border-b border-brand-gold/30 rounded-t-lg">
+            <h3 class="text-lg font-semibold text-white flex items-center">
+                <i data-lucide="bot" class="w-5 h-5 mr-2 text-brand-gold"></i>
+                <span data-translate="chatbot.title">Premium Chauffeur Assistant</span>
+            </h3>
+            <div class="flex items-center space-x-2">
+                <div class="flex items-center space-x-1 mr-2">
+                    <button id="size-small" class="text-gray-400 hover:text-white text-xs px-1" title="Small Size">S</button>
+                    <button id="size-medium" class="text-gray-400 hover:text-white text-xs px-1" title="Medium Size">M</button>
+                    <button id="size-large" class="text-gray-400 hover:text-white text-xs px-1" title="Large Size">L</button>
+                </div>
+                <button id="fullscreen-chatbot" class="text-gray-400 hover:text-white" title="Fullscreen">
+                    <i data-lucide="maximize" class="w-5 h-5"></i>
+                </button>
+                <button id="close-chatbot" class="text-gray-400 hover:text-white" title="Close">
+                    <i data-lucide="x" class="w-5 h-5"></i>
+                </button>
+            </div>
+        </div>
+        <div id="chatbot-messages" class="h-96 p-4 overflow-y-auto">
+        </div>
+        <div class="p-4 border-t border-brand-gold/30 bg-transparent rounded-b-lg">
+            <form id="chatbot-form" class="flex items-center space-x-2">
+                <input type="text" id="chatbot-input" data-translate-placeholder="chatbot.placeholder" placeholder="Ask about our services..." class="flex-grow text-white rounded-md py-2 px-3 focus:outline-none">
+                <button type="submit" class="bg-brand-gold text-brand-dark p-2 rounded-md hover:bg-yellow-400 transition-colors">
+                    <i data-lucide="send" class="w-5 h-5"></i>
+                </button>
+            </form>
+        </div>
+        <div class="chatbot-resize-handle" title="Drag to resize"></div>
+    </div>
+
+    <!-- Floating Language Selector -->
+    <div id="floating-language-selector" class="fixed bottom-6 right-6 z-50" style="transition: opacity 0.3s ease, transform 0.3s ease;">
+        <div class="language-selector-container relative">
+            <!-- Main Language Button -->
+            <button id="lang-toggle-btn" class="flex items-center justify-center w-9 h-9 rounded-full shadow-lg transition-all duration-300 transform hover:scale-110" style="
+                background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 50%, #1a1a1a 100%);
+                border: 2px solid #D4AF37;
+                box-shadow:
+                    0 4px 12px rgba(0, 0, 0, 0.6),
+                    0 0 0 1px rgba(212, 175, 55, 0.4),
+                    inset 0 1px 5px rgba(212, 175, 55, 0.15),
+                    inset 0 -1px 5px rgba(0, 0, 0, 0.3);
+            ">
+                <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="
+                    color: #D4AF37;
+                    text-shadow:
+                        0 0 5px rgba(212, 175, 55, 0.6),
+                        0 0 10px rgba(212, 175, 55, 0.3),
+                        0 1px 2px rgba(0, 0, 0, 0.5);
+                    filter: drop-shadow(0 0 4px rgba(212, 175, 55, 0.4));
+                ">
+                    <circle cx="12" cy="12" r="10"/>
+                    <path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"/>
+                    <path d="M2 12h20"/>
+                </svg>
+            </button>
+
+            <!-- Language Options -->
+            <div id="lang-options" class="absolute bottom-12 right-0 flex flex-col space-y-1 opacity-0 invisible transform scale-95 transition-all duration-300">
+                <!-- English -->
+                <button class="lang-option flex items-center justify-center w-9 h-9 rounded-full shadow-md transition-all duration-200 transform hover:scale-105" data-lang="en" onclick="selectLanguage('en')" style="
+                    background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 50%, #1a1a1a 100%);
+                    border: 2px solid #D4AF37;
+                    box-shadow:
+                        0 3px 10px rgba(0, 0, 0, 0.5),
+                        0 0 0 1px rgba(212, 175, 55, 0.3),
+                        inset 0 1px 4px rgba(212, 175, 55, 0.1),
+                        inset 0 -1px 4px rgba(0, 0, 0, 0.2);
+                ">
+                    <span class="text-xs font-bold" style="
+                        color: #D4AF37;
+                        text-shadow:
+                            0 0 5px rgba(212, 175, 55, 0.6),
+                            0 0 10px rgba(212, 175, 55, 0.3),
+                            0 1px 2px rgba(0, 0, 0, 0.5);
+                    ">EN</span>
+                </button>
+                <!-- German -->
+                <button class="lang-option flex items-center justify-center w-9 h-9 rounded-full shadow-md transition-all duration-200 transform hover:scale-105" data-lang="de" onclick="selectLanguage('de')" style="
+                    background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 50%, #1a1a1a 100%);
+                    border: 2px solid #D4AF37;
+                    box-shadow:
+                        0 3px 10px rgba(0, 0, 0, 0.5),
+                        0 0 0 1px rgba(212, 175, 55, 0.3),
+                        inset 0 1px 4px rgba(212, 175, 55, 0.1),
+                        inset 0 -1px 4px rgba(0, 0, 0, 0.2);
+                ">
+                    <span class="text-xs font-bold" style="
+                        color: #D4AF37;
+                        text-shadow:
+                            0 0 5px rgba(212, 175, 55, 0.6),
+                            0 0 10px rgba(212, 175, 55, 0.3),
+                            0 1px 2px rgba(0, 0, 0, 0.5);
+                    ">DE</span>
+                </button>
+                <!-- Arabic -->
+                <button class="lang-option flex items-center justify-center w-9 h-9 rounded-full shadow-md transition-all duration-200 transform hover:scale-105" data-lang="ar" onclick="selectLanguage('ar')" style="
+                    background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 50%, #1a1a1a 100%);
+                    border: 2px solid #D4AF37;
+                    box-shadow:
+                        0 3px 10px rgba(0, 0, 0, 0.5),
+                        0 0 0 1px rgba(212, 175, 55, 0.3),
+                        inset 0 1px 4px rgba(212, 175, 55, 0.1),
+                        inset 0 -1px 4px rgba(0, 0, 0, 0.2);
+                ">
+                    <span class="text-xs font-bold" style="
+                        color: #D4AF37;
+                        text-shadow:
+                            0 0 5px rgba(212, 175, 55, 0.6),
+                            0 0 10px rgba(212, 175, 55, 0.3),
+                            0 1px 2px rgba(0, 0, 0, 0.5);
+                    ">AR</span>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="translations-simple.js"></script>
+    <script src="header-loader.js"></script>
+    <script src="mobile-menu.js"></script>
+    <script src="social-bubble.js"></script>
+    <script src="business-card.js"></script>
+    <script src="script.js"></script>
+    <script>
+    let isLanguageSelectorOpen = false;
+
+    // Scroll visibility variables
+    let scrollTimeout;
+    let isScrolling = false;
+
+    // Language selector functionality
+    function toggleLanguageSelector() {
+        const langOptions = document.getElementById('lang-options');
+        isLanguageSelectorOpen = !isLanguageSelectorOpen;
+
+        if (isLanguageSelectorOpen) {
+            langOptions.style.opacity = '1';
+            langOptions.style.visibility = 'visible';
+            langOptions.style.transform = 'scale(1)';
+        } else {
+            langOptions.style.opacity = '0';
+            langOptions.style.visibility = 'hidden';
+            langOptions.style.transform = 'scale(0.95)';
+        }
+    }
+
+    function selectLanguage(lang) {
+        // Close the selector
+        toggleLanguageSelector();
+
+        // Switch language
+        if (window.switchLanguage) {
+            window.switchLanguage(lang);
+        }
+
+        // Show feedback
+        showLanguageChangeFeedback(lang);
+    }
+
+    function showLanguageChangeFeedback(lang) {
+        const langNames = {
+            'en': 'English',
+            'de': 'Deutsch',
+            'ar': 'العربية'
+        };
+
+        // Remove existing notification
+        const existingNotification = document.querySelector('.language-change-notification');
+        if (existingNotification) {
+            existingNotification.remove();
+        }
+
+        // Create notification
+        const notification = document.createElement('div');
+        notification.className = 'language-change-notification';
+        notification.style.cssText = `
+            position: fixed;
+            top: 100px;
+            right: 30px;
+            background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
+            color: #D4AF37;
+            padding: 12px 20px;
+            border-radius: 8px;
+            border: 2px solid #D4AF37;
+            font-weight: 600;
+            z-index: 10000;
+            box-shadow: 0 4px 20px rgba(212, 175, 55, 0.3);
+            transform: translateX(100%);
+            transition: transform 0.3s ease;
+            backdrop-filter: blur(10px);
+        `;
+        notification.textContent = `Language: ${langNames[lang]}`;
+
+        document.body.appendChild(notification);
+
+        // Animate in
+        setTimeout(() => {
+            notification.style.transform = 'translateX(0)';
+        }, 10);
+
+        // Animate out and remove
+        setTimeout(() => {
+            notification.style.transform = 'translateX(100%)';
+            setTimeout(() => {
+                if (notification.parentNode) {
+                    notification.parentNode.removeChild(notification);
+                }
+            }, 300);
+        }, 2000);
+    }
+
+    // Scroll visibility functions
+    function hideBubbles() {
+        const languageSelector = document.getElementById('floating-language-selector');
+        const socialBubble = document.querySelector('.social-bubble-container');
+        const chatBubble = document.querySelector('.chatbot-bubble');
+
+        if (languageSelector) {
+            languageSelector.style.opacity = '0';
+            languageSelector.style.transform = 'translateY(20px)';
+            languageSelector.style.pointerEvents = 'none';
+        }
+        if (socialBubble) {
+            socialBubble.style.opacity = '0';
+            socialBubble.style.transform = 'translateY(20px)';
+            socialBubble.style.pointerEvents = 'none';
+        }
+        if (chatBubble) {
+            chatBubble.style.opacity = '0';
+            chatBubble.style.transform = 'translateY(20px)';
+            chatBubble.style.pointerEvents = 'none';
+        }
+    }
+
+    function showBubbles() {
+        const languageSelector = document.getElementById('floating-language-selector');
+        const socialBubble = document.querySelector('.social-bubble-container');
+        const chatBubble = document.querySelector('.chatbot-bubble');
+
+        if (languageSelector) {
+            languageSelector.style.opacity = '1';
+            languageSelector.style.transform = 'translateY(0)';
+            languageSelector.style.pointerEvents = 'auto';
+        }
+        if (socialBubble) {
+            socialBubble.style.opacity = '1';
+            socialBubble.style.transform = 'translateY(0)';
+            socialBubble.style.pointerEvents = 'auto';
+        }
+        if (chatBubble) {
+            chatBubble.style.opacity = '1';
+            chatBubble.style.transform = 'translateY(0)';
+            chatBubble.style.pointerEvents = 'auto';
+        }
+    }
+
+    function handleScroll() {
+        if (!isScrolling) {
+            showBubbles();
+            isScrolling = true;
+        }
+
+        clearTimeout(scrollTimeout);
+        scrollTimeout = setTimeout(() => {
+            hideBubbles();
+            isScrolling = false;
+        }, 2000);
+    }
+
+    // Initialize everything when DOM is loaded
+    document.addEventListener('DOMContentLoaded', function() {
+        // Language selector toggle
+        const langToggleBtn = document.getElementById('lang-toggle-btn');
+        if (langToggleBtn) {
+            langToggleBtn.addEventListener('click', function(e) {
+                e.stopPropagation();
+                toggleLanguageSelector();
+            });
+        }
+
+        // Add scroll event listener
+        window.addEventListener('scroll', handleScroll);
+
+        // Initial state: show bubbles for 3 seconds, then hide
+        showBubbles();
+        setTimeout(() => {
+            if (!isScrolling) {
+                hideBubbles();
+            }
+        }, 3000);
+
+        // Initialize Lucide icons
+        if (window.lucide) {
+            window.lucide.createIcons();
+        }
+
+        // Set up periodic icon refresh
+        setInterval(() => {
+            if (window.lucide) {
+                window.lucide.createIcons();
+            }
+        }, 100);
+
+    });
+
+    // Close language selector when clicking outside
+    document.addEventListener('click', function(event) {
+        const selector = document.getElementById('floating-language-selector');
+        if (selector && !selector.contains(event.target) && isLanguageSelectorOpen) {
+            toggleLanguageSelector();
+        }
+    });
+
+    // Initialize Lucide icons
+    if (window.lucide) {
+        window.lucide.createIcons();
+    }
+        
+        // Contact form functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            const contactForm = document.getElementById('contact-form');
+            const whatsappBtn = document.getElementById('whatsapp-btn');
+            const submitBtn = document.getElementById('submit-btn');
+            const submitText = document.getElementById('submit-text');
+            const loadingText = document.getElementById('loading-text');
+            const formStatus = document.getElementById('form-status');
+            
+            // Your WhatsApp number (replace with your actual number)
+            const whatsappNumber = '+4917631454340';
+            
+            // Function to create WhatsApp message
+            function createWhatsAppMessage() {
+                const formData = new FormData(contactForm);
+                const name = formData.get('name') || 'Not provided';
+                const email = formData.get('email') || 'Not provided';
+                const phone = formData.get('phone') || 'Not provided';
+                const service = formData.get('service') || 'Not specified';
+                const message = formData.get('message') || 'No message';
+                
+                const whatsappMessage = `*PREMIUM CHAUFFEUR - New Contact Form Submission*\n\n` +
+                    `• *Name:* ${name}\n` +
+                    `• *Email:* ${email}\n` +
+                    `• *Phone:* ${phone}\n` +
+                    `• *Service:* ${service}\n` +
+                    `• *Message:* ${message}\n\n` +
+                    `_Sent from Premium Chauffeur Contact Form_`;
+                
+                return encodeURIComponent(whatsappMessage);
+            }
+            
+            // WhatsApp button click handler
+            whatsappBtn.addEventListener('click', function() {
+                const message = createWhatsAppMessage();
+                const whatsappUrl = `https://wa.me/${whatsappNumber.replace(/[^0-9]/g, '')}?text=${message}`;
+                window.open(whatsappUrl, '_blank');
+            });
+            
+            // Form submission handler
+            contactForm.addEventListener('submit', function(e) {
+                e.preventDefault();
+                
+                // Show loading state
+                submitText.classList.add('hidden');
+                loadingText.classList.remove('hidden');
+                submitBtn.disabled = true;
+                
+                // Submit to Formspree
+                fetch(contactForm.action, {
+                    method: 'POST',
+                    body: new FormData(contactForm),
+                    headers: {
+                        'Accept': 'application/json'
+                    }
+                })
+                .then(response => {
+                    if (response.ok) {
+                        formStatus.textContent = 'SUCCESS: Message sent successfully! We\'ll get back to you soon.';
+                        formStatus.className = 'text-center text-sm text-green-400';
+                        formStatus.classList.remove('hidden');
+                        contactForm.reset();
+                        
+                        // Also create WhatsApp link
+                        setTimeout(() => {
+                            const message = createWhatsAppMessage();
+                            const whatsappUrl = `https://wa.me/${whatsappNumber.replace(/[^0-9]/g, '')}?text=${message}`;
+                            
+                            const whatsappLink = document.createElement('div');
+                            whatsappLink.className = 'mt-4 p-4 bg-green-600 rounded-lg text-center';
+                            whatsappLink.innerHTML = `
+                                <p class="text-white mb-2">Also sent to WhatsApp:</p>
+                                <a href="${whatsappUrl}" target="_blank" class="text-white underline hover:text-green-200">
+                                    Open WhatsApp Conversation
+                                </a>
+                            `;
+                            formStatus.appendChild(whatsappLink);
+                        }, 1000);
+                    } else {
+                        throw new Error('Network response was not ok');
+                    }
+                })
+                .catch(error => {
+                    formStatus.textContent = 'ERROR: There was an error sending your message. Please try again.';
+                    formStatus.className = 'text-center text-sm text-red-400';
+                    formStatus.classList.remove('hidden');
+                })
+                .finally(() => {
+                    // Reset button state
+                    submitText.classList.remove('hidden');
+                    loadingText.classList.add('hidden');
+                    submitBtn.disabled = false;
+                });
+            });
+        });
+
+        // Update current year in footer
+        document.getElementById('current-year').textContent = new Date().getFullYear();
+    </script>
+</body>
+</html>

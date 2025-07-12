@@ -1,0 +1,267 @@
+/**
+ * Cloudflare Worker for OpenRouter API
+ * 
+ * This worker handles requests to the OpenRouter API, providing:
+ * - CORS support for GitHub Pages
+ * - API key security
+ * - Rate limiting
+ * - Error handling
+ * - Test page for GET requests
+ */
+
+// Configuration
+const OPENROUTER_API_URL = 'https://openrouter.ai/api/v1/chat/completions';
+const OPENROUTER_API_KEY = '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'; // Your OpenRouter API key
+const DEFAULT_MODEL = 'qwen/qwen3-32b';
+const ALLOWED_ORIGINS = [
+  'https://mouhcine.github.io',       // Your GitHub Pages domain
+  'https://mouhcine.github.io/y_website', // Your GitHub Pages site with repository
+  'http://localhost:5173',            // For local development
+  'http://localhost:3000',            // Alternative local development port
+  '*'                                 // Allow all origins during testing (remove in production)
+];
+
+// Rate limiting configuration (adjust as needed)
+const RATE_LIMIT = 50;              // Maximum requests per minute
+const RATE_LIMIT_WINDOW = 60;       // Window size in seconds
+
+// In-memory store for rate limiting (will reset when worker restarts)
+// For production, consider using Cloudflare KV or Durable Objects
+let ipRequests = {};
+
+/**
+ * Handle incoming requests
+ */
+addEventListener('fetch', event => {
+  event.respondWith(handleRequest(event.request));
+});
+
+/**
+ * Main request handler
+ */
+async function handleRequest(request) {
+  // Handle GET requests with a simple test page
+  if (request.method === 'GET') {
+    return new Response(`
+      <!DOCTYPE html>
+      <html>
+      <head>
+        <title>OpenRouter API Test</title>
+        <style>
+          body { font-family: Arial, sans-serif; max-width: 800px; margin: 0 auto; padding: 20px; }
+          textarea { width: 100%; height: 100px; margin-bottom: 10px; }
+          #response { white-space: pre-wrap; background: #f0f0f0; padding: 10px; }
+          button { background: #4CAF50; color: white; padding: 10px 15px; border: none; cursor: pointer; }
+          button:hover { background: #45a049; }
+          h1, h2 { color: #333; }
+          .models { margin-bottom: 10px; }
+        </style>
+      </head>
+      <body>
+        <h1>OpenRouter API Test</h1>
+        <p>This page allows you to test your OpenRouter API integration directly.</p>
+        
+        <div class="models">
+          <label for="model">Select Model:</label>
+          <select id="model">
+            <option value="qwen/qwen3-4b">Qwen3 4B</option>
+            <option value="qwen/qwen3-32b">Qwen3 32B</option>
+            <option value="google/gemma-3-27b">Gemma 3 27B</option>
+            <option value="google/gemini-2.5-pro-experimental">Gemini 2.5 Pro</option>
+            <option value="deepseek/deepseek-v3">DeepSeek V3</option>
+          </select>
+        </div>
+        
+        <textarea id="prompt" placeholder="Enter your message here...">Hello, how are you?</textarea>
+        <button id="send">Send Request</button>
+        <h2>Response:</h2>
+        <div id="response">Response will appear here...</div>
+        
+        <script>
+          document.getElementById('send').addEventListener('click', async () => {
+            const prompt = document.getElementById('prompt').value;
+            const model = document.getElementById('model').value;
+            const responseDiv = document.getElementById('response');
+            
+            responseDiv.textContent = 'Loading...';
+            
+            try {
+              const response = await fetch('', {
+                method: 'POST',
+                headers: {
+                  'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({
+                  model: model,
+                  messages: [{role: 'user', content: prompt}],
+                  temperature: 0.7,
+                  max_tokens: 1000
+                })
+              });
+              
+              const data = await response.json();
+              
+              if (data.error) {
+                responseDiv.textContent = 'Error: ' + JSON.stringify(data.error, null, 2);
+              } else if (data.choices && data.choices[0] && data.choices[0].message) {
+                responseDiv.textContent = data.choices[0].message.content;
+              } else {
+                responseDiv.textContent = 'Unexpected response format: ' + JSON.stringify(data, null, 2);
+              }
+            } catch (error) {
+              responseDiv.textContent = 'Error: ' + error.message;
+            }
+          });
+        </script>
+      </body>
+      </html>
+    `, {
+      headers: {
+        'Content-Type': 'text/html'
+      }
+    });
+  }
+
+  // Handle CORS preflight requests
+  if (request.method === 'OPTIONS') {
+    return handleCORS(request);
+  }
+
+  // For non-GET/OPTIONS requests, only allow POST
+  if (request.method !== 'POST') {
+    return new Response('Method not allowed', { status: 405 });
+  }
+
+  // Check origin
+  const origin = request.headers.get('Origin');
+  if (!ALLOWED_ORIGINS.includes(origin) && !ALLOWED_ORIGINS.includes('*')) {
+    return new Response('Forbidden', { status: 403 });
+  }
+
+  // Apply rate limiting
+  const clientIP = request.headers.get('CF-Connecting-IP') || 'unknown';
+  if (!checkRateLimit(clientIP)) {
+    return corsResponse(
+      new Response(JSON.stringify({ error: 'Rate limit exceeded' }), {
+        status: 429,
+        headers: { 'Content-Type': 'application/json' }
+      }),
+      origin
+    );
+  }
+
+  try {
+    // Parse request body
+    const requestData = await request.json();
+    
+    // Extract parameters
+    const messages = requestData.messages || [];
+    const model = requestData.model || DEFAULT_MODEL;
+    const temperature = requestData.temperature || 0.7;
+    const maxTokens = requestData.max_tokens || 1000;
+    
+    // Prepare request to OpenRouter
+    const openRouterRequest = {
+      model: model,
+      messages: messages,
+      temperature: temperature,
+      max_tokens: maxTokens
+    };
+    
+    // Call OpenRouter API
+    const openRouterResponse = await fetch(OPENROUTER_API_URL, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'Authorization': `Bearer ${OPENROUTER_API_KEY}`,
+        'HTTP-Referer': 'https://mouhcine.github.io', // Your GitHub Pages domain
+        'X-Title': 'Transportation Chat Bot'
+      },
+      body: JSON.stringify(openRouterRequest)
+    });
+    
+    // Get response data
+    const responseData = await openRouterResponse.json();
+    
+    // Return response with CORS headers
+    return corsResponse(
+      new Response(JSON.stringify(responseData), {
+        status: openRouterResponse.status,
+        headers: { 'Content-Type': 'application/json' }
+      }),
+      origin
+    );
+  } catch (error) {
+    // Handle errors
+    console.error('Error processing request:', error);
+    return corsResponse(
+      new Response(JSON.stringify({ error: error.message }), {
+        status: 500,
+        headers: { 'Content-Type': 'application/json' }
+      }),
+      origin
+    );
+  }
+}
+
+/**
+ * Handle CORS preflight requests
+ */
+function handleCORS(request) {
+  const origin = request.headers.get('Origin');
+  
+  // Check if origin is allowed
+  if (!ALLOWED_ORIGINS.includes(origin) && !ALLOWED_ORIGINS.includes('*')) {
+    return new Response('Forbidden', { status: 403 });
+  }
+  
+  // Return CORS preflight response
+  return new Response(null, {
+    status: 204,
+    headers: {
+      'Access-Control-Allow-Origin': origin || '*',
+      'Access-Control-Allow-Methods': 'POST, OPTIONS, GET',
+      'Access-Control-Allow-Headers': 'Content-Type, Authorization',
+      'Access-Control-Max-Age': '86400'
+    }
+  });
+}
+
+/**
+ * Add CORS headers to a response
+ */
+function corsResponse(response, origin) {
+  // Clone the response
+  const newResponse = new Response(response.body, response);
+  
+  // Add CORS headers
+  newResponse.headers.set('Access-Control-Allow-Origin', origin || '*');
+  
+  return newResponse;
+}
+
+/**
+ * Check rate limit for a client IP
+ */
+function checkRateLimit(clientIP) {
+  const now = Math.floor(Date.now() / 1000);
+  
+  // Initialize or clean up old entries
+  if (!ipRequests[clientIP]) {
+    ipRequests[clientIP] = [];
+  }
+  
+  // Remove requests outside the current window
+  ipRequests[clientIP] = ipRequests[clientIP].filter(
+    timestamp => now - timestamp < RATE_LIMIT_WINDOW
+  );
+  
+  // Check if rate limit is exceeded
+  if (ipRequests[clientIP].length >= RATE_LIMIT) {
+    return false;
+  }
+  
+  // Add current request
+  ipRequests[clientIP].push(now);
+  return true;
+}

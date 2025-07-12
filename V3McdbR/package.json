@@ -1,0 +1,74 @@
+{
+  "name": "premium-chauffeur-chatbot",
+  "version": "1.0.0",
+  "description": "Premium Chauffeur Service website with AI-powered chatbot, responsive design, and multi-language support",
+  "main": "index.html",
+  "scripts": {
+    "start": "npm run serve",
+    "serve": "http-server . -p 8000 -c-1 --cors",
+    "dev": "npm run serve",
+    "build": "echo 'Static website - no build needed'",
+    "preview": "npm run serve",
+    "setup": "npm install && echo 'Setup complete! Run npm start to serve the website'",
+    "chatbot-setup": "echo 'Opening chatbot setup page...' && start http://localhost:8000/chatbot-setup.html",
+    "open": "start http://localhost:8000",
+    "lint": "echo 'Linting not configured for static HTML project'"
+  },
+  "keywords": [
+    "chauffeur-service",
+    "luxury-transportation",
+    "chatbot",
+    "ai",
+    "openrouter",
+    "static-website",
+    "responsive-design",
+    "multi-language",
+    "booking-system",
+    "premium-service"
+  ],
+  "author": "Premium Chauffeur Service",
+  "license": "MIT",
+  "dependencies": {
+    "gsap": "^3.13.0",
+    "http-server": "^14.1.1",
+    "node-fetch": "^3.3.2"
+  },
+  "devDependencies": {
+    "concurrently": "^8.2.2",
+    "nodemon": "^3.0.2"
+  },
+  "engines": {
+    "node": ">=16.0.0",
+    "npm": ">=8.0.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/premium-chauffeur/chatbot.git"
+  },
+  "bugs": {
+    "url": "https://github.com/premium-chauffeur/chatbot/issues"
+  },
+  "homepage": "https://premium-chauffeur.com",
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  },
+  "config": {
+    "chatbot": {
+      "apiProvider": "openrouter",
+      "model": "qwen/qwen-2.5-72b-instruct",
+      "maxTokens": 200,
+      "temperature": 0.1,
+      "fallbackEnabled": true,
+      "formspreeEndpoint": "https://formspree.io/f/myzerjwz"
+    }
+  }
+}

@@ -1,0 +1,1256 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Premium Chauffeur</title>
+    <script src="https://cdn.tailwindcss.com?plugins=typography"></script>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="social-bubble.css">
+    <link rel="stylesheet" href="language.css">
+    <link rel="stylesheet" href="business-card.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;500;600;700&family=Amiri:wght@400;700&family=Noto+Sans+Arabic:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+
+</head>
+<body class="bg-brand-dark text-brand-light font-sans antialiased" data-page="home">
+
+
+    <!-- Header -->
+    <header id="main-header" class="fixed top-0 left-0 right-0 z-50 navbar-transparent transition-all duration-300">
+        <nav class="container mx-auto px-6 py-4">
+            <div class="flex items-center justify-between">
+                <!-- Logo -->
+                <a href="index.html" class="flex items-center space-x-3 hover:opacity-80 transition-opacity">
+                    <div class="w-10 h-10 flex items-center justify-center">
+                        <img src="assets/logo.svg" alt="Premium Chauffeur Logo" class="w-8 h-8 rotating-logo">
+                    </div>
+                    <div class="text-xl font-bold text-brand-gold">
+                        PREMIUM CHAUFFEUR
+                    </div>
+                </a>
+
+                <!-- Desktop Navigation -->
+                <div class="hidden lg:flex items-center space-x-6 xl:space-x-8">
+                    <a href="services.html" class="nav-link" data-page="services" data-translate="nav.services">
+                        Services
+                    </a>
+                    <a href="fleet.html" class="nav-link" data-page="fleet" data-translate="nav.fleet">
+                        Fleet
+                    </a>
+                    <a href="destinations.html" class="nav-link" data-page="destinations" data-translate="nav.destinations">
+                        Destinations
+                    </a>
+                    <a href="Tourism_Packages.html" class="nav-link" data-page="Tourism_Packages" data-translate="nav.tourism_packages">
+                        Tourism
+                    </a>
+                    <a href="contact.html" class="nav-link" data-page="contact" data-translate="nav.contact">
+                        Contact
+                    </a>
+                    <a href="booking-form.html" class="btn btn-primary text-sm px-6 py-2" data-translate="nav.book_now">
+                        Book Now
+                    </a>
+                </div>
+
+                <!-- Tablet Navigation (medium screens) -->
+                <div class="hidden md:flex lg:hidden items-center space-x-4">
+                    <a href="services.html" class="nav-link text-sm" data-page="services" data-translate="nav.services">
+                        Services
+                    </a>
+                    <a href="fleet.html" class="nav-link text-sm" data-page="fleet" data-translate="nav.fleet">
+                        Fleet
+                    </a>
+                    <a href="destinations.html" class="nav-link text-sm" data-page="destinations" data-translate="nav.destinations">
+                        Destinations
+                    </a>
+                    <a href="contact.html" class="nav-link text-sm" data-page="contact" data-translate="nav.contact">
+                        Contact
+                    </a>
+                    <a href="booking-form.html" class="btn btn-primary text-xs px-4 py-2" data-translate="nav.book_now">
+                        Book Now
+                    </a>
+                </div>
+
+                <!-- Mobile Menu Button -->
+                <button id="mobile-menu-btn" class="md:hidden text-brand-light hover:text-brand-gold transition-colors">
+                    <i data-lucide="menu" class="w-6 h-6"></i>
+                </button>
+            </div>
+
+            <!-- Mobile Navigation -->
+            <div id="mobile-menu" class="md:hidden mt-4 pb-4 border-t border-gray-800/50 hidden">
+                <div class="flex flex-col space-y-4 pt-4">
+                    <a href="services.html" class="mobile-nav-link" data-page="services" data-translate="nav.services">
+                        Services
+                    </a>
+                    <a href="fleet.html" class="mobile-nav-link" data-page="fleet" data-translate="nav.fleet">
+                        Fleet
+                    </a>
+                    <a href="destinations.html" class="mobile-nav-link" data-page="destinations" data-translate="nav.destinations">
+                        Destinations
+                    </a>
+                    <a href="Tourism_Packages.html" class="mobile-nav-link" data-page="Tourism_Packages" data-translate="nav.tourism_packages">
+                        Tourism
+                    </a>
+                    <a href="contact.html" class="mobile-nav-link" data-page="contact" data-translate="nav.contact">
+                        Contact
+                    </a>
+
+                    <!-- Mobile Language Selector -->
+                    <div class="border-t border-gray-800/50 pt-4 mt-4">
+                        <div class="text-sm text-gray-400 mb-2" data-translate="nav.language">Language</div>
+                        <div class="flex flex-wrap gap-2">
+                            <button onclick="selectLanguage('en')" class="mobile-lang-btn px-2 py-1 rounded bg-gray-800 hover:bg-gray-700 transition-colors text-xs text-white">
+                                EN
+                            </button>
+                            <button onclick="selectLanguage('ar')" class="mobile-lang-btn px-2 py-1 rounded bg-gray-800 hover:bg-gray-700 transition-colors text-xs text-white">
+                                AR
+                            </button>
+                        </div>
+                    </div>
+
+                    <a href="booking-form.html" class="btn btn-primary text-sm px-6 py-2 mt-4 inline-block text-center" data-translate="nav.book_now">
+                        Book Now
+                    </a>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Floating Language Selector -->
+    <div id="floating-language-selector" class="fixed bottom-6 right-6 z-50" style="transition: opacity 0.3s ease, transform 0.3s ease;">
+        <div class="language-selector-container relative">
+            <!-- Main Language Button -->
+            <button id="lang-toggle-btn" class="flex items-center justify-center w-9 h-9 rounded-full shadow-lg transition-all duration-300 transform hover:scale-110" style="
+                background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 50%, #1a1a1a 100%);
+                border: 2px solid #D4AF37;
+                box-shadow:
+                    0 4px 12px rgba(0, 0, 0, 0.6),
+                    0 0 0 1px rgba(212, 175, 55, 0.4),
+                    inset 0 1px 5px rgba(212, 175, 55, 0.15),
+                    inset 0 -1px 5px rgba(0, 0, 0, 0.3);
+            ">
+                <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="
+                    color: #D4AF37;
+                    text-shadow:
+                        0 0 5px rgba(212, 175, 55, 0.6),
+                        0 0 10px rgba(212, 175, 55, 0.3),
+                        0 1px 2px rgba(0, 0, 0, 0.5);
+                    filter: drop-shadow(0 0 4px rgba(212, 175, 55, 0.4));
+                ">
+                    <circle cx="12" cy="12" r="10"/>
+                    <path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"/>
+                    <path d="M2 12h20"/>
+                </svg>
+            </button>
+
+            <!-- Language Options -->
+            <div id="lang-options" class="absolute bottom-12 right-0 flex flex-col space-y-1 opacity-0 invisible transform scale-95 transition-all duration-300">
+                <!-- English -->
+                <button class="lang-option flex items-center justify-center w-9 h-9 rounded-full shadow-md transition-all duration-200 transform hover:scale-105" data-lang="en" onclick="selectLanguage('en')" style="
+                    background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 50%, #1a1a1a 100%);
+                    border: 2px solid #D4AF37;
+                    box-shadow:
+                        0 3px 10px rgba(0, 0, 0, 0.5),
+                        0 0 0 1px rgba(212, 175, 55, 0.3),
+                        inset 0 1px 4px rgba(212, 175, 55, 0.1),
+                        inset 0 -1px 4px rgba(0, 0, 0, 0.2);
+                ">
+                    <span class="text-xs font-bold" style="
+                        color: #D4AF37;
+                        text-shadow:
+                            0 0 5px rgba(212, 175, 55, 0.6),
+                            0 0 10px rgba(212, 175, 55, 0.3),
+                            0 1px 2px rgba(0, 0, 0, 0.5);
+                    ">EN</span>
+                </button>
+                <!-- German -->
+                <button class="lang-option flex items-center justify-center w-9 h-9 rounded-full shadow-md transition-all duration-200 transform hover:scale-105" data-lang="de" onclick="selectLanguage('de')" style="
+                    background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 50%, #1a1a1a 100%);
+                    border: 2px solid #D4AF37;
+                    box-shadow:
+                        0 3px 10px rgba(0, 0, 0, 0.5),
+                        0 0 0 1px rgba(212, 175, 55, 0.3),
+                        inset 0 1px 4px rgba(212, 175, 55, 0.1),
+                        inset 0 -1px 4px rgba(0, 0, 0, 0.2);
+                ">
+                    <span class="text-xs font-bold" style="
+                        color: #D4AF37;
+                        text-shadow:
+                            0 0 5px rgba(212, 175, 55, 0.6),
+                            0 0 10px rgba(212, 175, 55, 0.3),
+                            0 1px 2px rgba(0, 0, 0, 0.5);
+                    ">DE</span>
+                </button>
+                <!-- Arabic -->
+                <button class="lang-option flex items-center justify-center w-9 h-9 rounded-full shadow-md transition-all duration-200 transform hover:scale-105" data-lang="ar" onclick="selectLanguage('ar')" style="
+                    background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 50%, #1a1a1a 100%);
+                    border: 2px solid #D4AF37;
+                    box-shadow:
+                        0 3px 10px rgba(0, 0, 0, 0.5),
+                        0 0 0 1px rgba(212, 175, 55, 0.3),
+                        inset 0 1px 4px rgba(212, 175, 55, 0.1),
+                        inset 0 -1px 4px rgba(0, 0, 0, 0.2);
+                ">
+                    <span class="text-xs font-bold" style="
+                        color: #D4AF37;
+                        text-shadow:
+                            0 0 5px rgba(212, 175, 55, 0.6),
+                            0 0 10px rgba(212, 175, 55, 0.3),
+                            0 1px 2px rgba(0, 0, 0, 0.5);
+                    ">AR</span>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+    let isLanguageSelectorOpen = false;
+
+    // Scroll visibility variables
+    let scrollTimeout;
+    let isScrolling = false;
+
+    function toggleLanguageSelector() {
+        const options = document.getElementById('lang-options');
+        const toggleBtn = document.getElementById('lang-toggle-btn');
+
+        if (isLanguageSelectorOpen) {
+            // Close
+            options.classList.add('opacity-0', 'invisible', 'scale-95');
+            options.classList.remove('opacity-100', 'visible', 'scale-100');
+            toggleBtn.classList.remove('rotate-45');
+            // Reset to normal golden style
+            toggleBtn.style.borderColor = '#D4AF37';
+            toggleBtn.style.boxShadow = `
+                0 4px 12px rgba(0, 0, 0, 0.6),
+                0 0 0 1px rgba(212, 175, 55, 0.4),
+                inset 0 1px 5px rgba(212, 175, 55, 0.15),
+                inset 0 -1px 5px rgba(0, 0, 0, 0.3)
+            `;
+            isLanguageSelectorOpen = false;
+        } else {
+            // Open
+            options.classList.remove('opacity-0', 'invisible', 'scale-95');
+            options.classList.add('opacity-100', 'visible', 'scale-100');
+            toggleBtn.classList.add('rotate-45');
+            // Enhanced golden style when open
+            toggleBtn.style.borderColor = '#F0C14B';
+            toggleBtn.style.boxShadow = `
+                0 6px 18px rgba(0, 0, 0, 0.7),
+                0 0 0 2px rgba(240, 193, 75, 0.8),
+                inset 0 1px 8px rgba(240, 193, 75, 0.25),
+                inset 0 -1px 8px rgba(0, 0, 0, 0.4)
+            `;
+            isLanguageSelectorOpen = true;
+        }
+    }
+
+    function selectLanguage(lang) {
+        console.log('Language selected:', lang);
+
+        // Close the selector
+        const options = document.getElementById('lang-options');
+        const toggleBtn = document.getElementById('lang-toggle-btn');
+        options.classList.add('opacity-0', 'invisible', 'scale-95');
+        options.classList.remove('opacity-100', 'visible', 'scale-100');
+        toggleBtn.classList.remove('rotate-45');
+        isLanguageSelectorOpen = false;
+
+        // Switch language if function exists
+        if (window.switchLanguage) {
+            window.switchLanguage(lang);
+        }
+
+        // Show feedback
+        showLanguageChangeFeedback(lang);
+    }
+
+    // Scroll visibility functions
+    function hideBubbles() {
+        const languageSelector = document.getElementById('floating-language-selector');
+        const socialBubble = document.querySelector('.social-bubble-container');
+        const chatBubble = document.querySelector('.chatbot-bubble');
+        const chatContainer = document.getElementById('chatbot-container');
+
+        if (languageSelector) {
+            languageSelector.style.opacity = '0';
+            languageSelector.style.transform = 'translateY(20px)';
+            languageSelector.style.pointerEvents = 'none';
+        }
+        if (socialBubble) {
+            socialBubble.style.opacity = '0';
+            socialBubble.style.transform = 'translateY(20px)';
+            socialBubble.style.pointerEvents = 'none';
+        }
+        // Don't hide chatbot bubble if chat is open
+        if (chatBubble && (!chatContainer || !chatContainer.classList.contains('active'))) {
+            chatBubble.style.opacity = '0';
+            chatBubble.style.transform = 'translateY(20px)';
+            chatBubble.style.pointerEvents = 'none';
+        }
+    }
+
+    function showBubbles() {
+        const languageSelector = document.getElementById('floating-language-selector');
+        const socialBubble = document.querySelector('.social-bubble-container');
+        const chatBubble = document.querySelector('.chatbot-bubble');
+
+        if (languageSelector) {
+            languageSelector.style.opacity = '1';
+            languageSelector.style.transform = 'translateY(0)';
+            languageSelector.style.pointerEvents = 'auto';
+        }
+        if (socialBubble) {
+            socialBubble.style.opacity = '1';
+            socialBubble.style.transform = 'translateY(0)';
+            socialBubble.style.pointerEvents = 'auto';
+        }
+        if (chatBubble) {
+            chatBubble.style.opacity = '1';
+            chatBubble.style.transform = 'translateY(0)';
+            chatBubble.style.pointerEvents = 'auto';
+        }
+    }
+
+    function handleScroll() {
+        if (!isScrolling) {
+            isScrolling = true;
+            showBubbles();
+        }
+
+        // Clear existing timeout
+        clearTimeout(scrollTimeout);
+
+        // Responsive timeout based on device type
+        const isMobile = window.innerWidth <= 768;
+        const hideDelay = isMobile ? 1500 : 2000; // Faster on mobile
+
+        // Set new timeout to hide bubbles after scrolling stops
+        scrollTimeout = setTimeout(() => {
+            isScrolling = false;
+            hideBubbles();
+        }, hideDelay);
+    }
+
+    function showLanguageChangeFeedback(lang) {
+        // Define language names
+        const langNames = {
+            'en': 'English',
+            'de': 'Deutsch',
+            'ar': 'العربية'
+        };
+
+        const langName = langNames[lang] || lang.toUpperCase();
+
+        // Create temporary feedback element with golden theme
+        const feedback = document.createElement('div');
+        feedback.className = 'fixed bottom-24 right-6 px-4 py-2 rounded-lg shadow-lg z-50 transform translate-y-4 opacity-0 transition-all duration-300';
+        feedback.style.cssText = `
+            background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 50%, #1a1a1a 100%);
+            border: 2px solid #D4AF37;
+            box-shadow:
+                0 8px 25px rgba(0, 0, 0, 0.6),
+                0 0 0 1px rgba(212, 175, 55, 0.4),
+                inset 0 2px 10px rgba(212, 175, 55, 0.15),
+                inset 0 -2px 10px rgba(0, 0, 0, 0.3);
+        `;
+        feedback.innerHTML = `
+            <div class="flex items-center space-x-2">
+                <div class="w-3 h-3 rounded-full" style="
+                    background: #D4AF37;
+                    box-shadow: 0 0 8px rgba(212, 175, 55, 0.6);
+                "></div>
+                <span class="font-medium" style="
+                    color: #D4AF37;
+                    text-shadow:
+                        0 0 10px rgba(212, 175, 55, 0.6),
+                        0 0 20px rgba(212, 175, 55, 0.3),
+                        0 2px 4px rgba(0, 0, 0, 0.5);
+                ">${langName}</span>
+            </div>
+        `;
+        document.body.appendChild(feedback);
+
+        // Animate in
+        setTimeout(() => {
+            feedback.classList.remove('translate-y-4', 'opacity-0');
+        }, 10);
+
+        // Remove after 2 seconds
+        setTimeout(() => {
+            feedback.classList.add('translate-y-4', 'opacity-0');
+            setTimeout(() => {
+                document.body.removeChild(feedback);
+            }, 300);
+        }, 2000);
+    }
+
+    // Mobile menu toggle
+    document.addEventListener('DOMContentLoaded', function() {
+        const langToggleBtn = document.getElementById('lang-toggle-btn');
+
+        // Initialize bubbles as hidden
+        hideBubbles();
+
+        // Add scroll event listener with passive option for better performance
+        window.addEventListener('scroll', handleScroll, { passive: true });
+
+        // Add touch event listeners for mobile responsiveness
+        if ('ontouchstart' in window) {
+            let touchStartY = 0;
+            let touchEndY = 0;
+
+            window.addEventListener('touchstart', (e) => {
+                touchStartY = e.changedTouches[0].screenY;
+            }, { passive: true });
+
+            window.addEventListener('touchmove', (e) => {
+                touchEndY = e.changedTouches[0].screenY;
+                const touchDelta = Math.abs(touchEndY - touchStartY);
+
+                // Show bubbles on significant touch movement
+                if (touchDelta > 10) {
+                    handleScroll();
+                }
+            }, { passive: true });
+        }
+
+        // Show bubbles initially for 3 seconds, then hide
+        setTimeout(() => {
+            showBubbles();
+            setTimeout(() => {
+                if (!isScrolling) {
+                    hideBubbles();
+                }
+            }, 3000);
+        }, 500);
+
+        // Ensure chatbot bubble is always visible and clickable
+        setTimeout(() => {
+            const chatBubble = document.querySelector('.chatbot-bubble');
+            if (chatBubble) {
+                chatBubble.style.opacity = '1';
+                chatBubble.style.transform = 'translateY(0)';
+                chatBubble.style.pointerEvents = 'auto';
+                console.log('Chatbot bubble made visible');
+            }
+        }, 1000);
+
+        // API Configuration Helper
+        window.setupChatbotAPI = function() {
+            const apiKey = prompt('Enter your OpenRouter API key (starts with sk-or-v1-):');
+            if (apiKey && apiKey.startsWith('sk-or-v1-')) {
+                localStorage.setItem('OPENROUTER_API_KEY', apiKey);
+                alert('✅ API key saved! The chatbot will now use AI responses.');
+                location.reload();
+            } else if (apiKey) {
+                alert('❌ Invalid API key format. It should start with sk-or-v1-');
+            }
+        };
+
+        // Check API status on load
+        setTimeout(() => {
+            const hasAPI = localStorage.getItem('OPENROUTER_API_KEY') || localStorage.getItem('CLOUDFLARE_WORKER_URL');
+            if (!hasAPI) {
+                console.log('💡 Chatbot is in fallback mode. To enable AI responses, call setupChatbotAPI() in console or set up API keys.');
+            } else {
+                console.log('✅ Chatbot API configured');
+            }
+        }, 2000);
+
+
+
+        if (langToggleBtn) {
+            langToggleBtn.addEventListener('click', toggleLanguageSelector);
+
+            // Add hover effects for main button
+            langToggleBtn.addEventListener('mouseenter', function() {
+                if (!isLanguageSelectorOpen) {
+                    this.style.borderColor = '#F0C14B';
+                    this.style.boxShadow = `
+                        0 6px 18px rgba(0, 0, 0, 0.7),
+                        0 0 0 2px rgba(240, 193, 75, 0.6),
+                        inset 0 1px 8px rgba(240, 193, 75, 0.2),
+                        inset 0 -1px 8px rgba(0, 0, 0, 0.4)
+                    `;
+                }
+            });
+
+            langToggleBtn.addEventListener('mouseleave', function() {
+                if (!isLanguageSelectorOpen) {
+                    this.style.borderColor = '#D4AF37';
+                    this.style.boxShadow = `
+                        0 4px 12px rgba(0, 0, 0, 0.6),
+                        0 0 0 1px rgba(212, 175, 55, 0.4),
+                        inset 0 1px 5px rgba(212, 175, 55, 0.15),
+                        inset 0 -1px 5px rgba(0, 0, 0, 0.3)
+                    `;
+                }
+            });
+        }
+
+        // Add hover effects for language option buttons
+        setTimeout(() => {
+            const langOptions = document.querySelectorAll('.lang-option');
+            langOptions.forEach(button => {
+                button.addEventListener('mouseenter', function() {
+                    this.style.borderColor = '#F0C14B';
+                    this.style.boxShadow = `
+                        0 4px 15px rgba(0, 0, 0, 0.7),
+                        0 0 0 2px rgba(240, 193, 75, 0.6),
+                        inset 0 1px 6px rgba(240, 193, 75, 0.2),
+                        inset 0 -1px 6px rgba(0, 0, 0, 0.3)
+                    `;
+                    const span = this.querySelector('span');
+                    if (span) {
+                        span.style.color = '#F0C14B';
+                        span.style.textShadow = `
+                            0 0 8px rgba(240, 193, 75, 0.8),
+                            0 0 12px rgba(240, 193, 75, 0.4),
+                            0 1px 3px rgba(0, 0, 0, 0.6)
+                        `;
+                    }
+                });
+
+                button.addEventListener('mouseleave', function() {
+                    this.style.borderColor = '#D4AF37';
+                    this.style.boxShadow = `
+                        0 3px 10px rgba(0, 0, 0, 0.5),
+                        0 0 0 1px rgba(212, 175, 55, 0.3),
+                        inset 0 1px 4px rgba(212, 175, 55, 0.1),
+                        inset 0 -1px 4px rgba(0, 0, 0, 0.2)
+                    `;
+                    const span = this.querySelector('span');
+                    if (span) {
+                        span.style.color = '#D4AF37';
+                        span.style.textShadow = `
+                            0 0 5px rgba(212, 175, 55, 0.6),
+                            0 0 10px rgba(212, 175, 55, 0.3),
+                            0 1px 2px rgba(0, 0, 0, 0.5)
+                        `;
+                    }
+                });
+            });
+        }, 100);
+    });
+
+    // Close language selector when clicking outside
+    document.addEventListener('click', function(event) {
+        const selector = document.getElementById('floating-language-selector');
+        if (selector && !selector.contains(event.target) && isLanguageSelectorOpen) {
+            toggleLanguageSelector();
+        }
+    });
+    </script>
+
+    <div id="app-container">
+        <main>
+            <!-- Hero Section with Slideshow -->
+            <section id="hero" class="relative flex items-center justify-center text-center overflow-hidden" style="height: 100vh; margin-top: -80px; padding-top: 80px;">
+                <!-- Slideshow Background -->
+                <div id="slideshow-container" class="absolute inset-0 w-full h-full">
+                    <!-- Slideshow images will be dynamically inserted here -->
+                </div>
+                
+                <!-- Gradient overlay for better text readability -->
+                <div class="absolute inset-0 bg-gradient-to-b from-black/30 via-black/40 to-black/50"></div>
+                
+                <!-- Hero Content -->
+                <div class="relative z-20 px-4">
+                    <div class="animation-container">
+                        <h1 class="text-4xl md:text-6xl lg:text-7xl font-bold text-white leading-tight mb-4 drop-shadow-lg" data-translate="hero.title">Our Premier Chauffeur Services</h1>
+                    </div>
+                    <div class="animation-container" style="--delay: 0.2s;">
+                        <p class="text-lg md:text-xl text-gray-300 max-w-3xl mx-auto mb-8 drop-shadow-lg" data-translate="hero.subtitle">Excellence in motion, tailored to your every need.</p>
+                    </div>
+                    <div class="animation-container" style="--delay: 0.4s;">
+                        <a href="booking-form.html" class="btn btn-primary shadow-lg hover:shadow-xl" data-translate="hero.bookButton">Book Your Journey</a>
+                    </div>
+                </div>
+                
+                <!-- Slideshow Navigation Dots -->
+                <div id="slideshow-dots" class="absolute bottom-16 left-0 right-0 flex justify-center space-x-3 z-10">
+                    <!-- Dots will be dynamically inserted here -->
+                </div>
+                
+                <!-- Slide Information -->
+                <div id="slide-info" class="absolute bottom-32 left-0 right-0 text-center px-4 z-10">
+                    <h2 id="slide-title" class="text-white text-2xl md:text-4xl font-bold mb-3 drop-shadow-lg transition-all duration-500"></h2>
+                    <p id="slide-description" class="text-white text-lg md:text-xl max-w-2xl mx-auto drop-shadow-lg transition-all duration-500"></p>
+                </div>
+            </section>
+
+            <!-- Executive Chauffeur Service Section -->
+            <section id="services" class="py-20 md:py-28 bg-brand-dark-gray dot-grid-bg">
+                <div class="container mx-auto px-6">
+                    <div class="grid lg:grid-cols-2 gap-12 items-center">
+                        <div>
+                            <div class="flex items-center mb-6">
+                                <i data-lucide="briefcase" class="w-12 h-12 text-brand-gold mr-4"></i>
+                                <h2 class="text-3xl md:text-4xl font-bold text-white" data-translate="services.executiveTitle">Executive Chauffeur Service</h2>
+                            </div>
+                            <p class="text-gray-400 text-lg mb-8" data-translate="services.executiveDescription">Designed for the discerning business professional, our executive service guarantees punctuality, discretion, and a seamless travel experience. We provide a mobile office environment, allowing you to remain productive while on the move.</p>
+                            
+                            <div class="space-y-4">
+                                <div class="relative pl-10 rtl:pl-0 rtl:pr-10">
+                                    <i data-lucide="check-circle" class="w-6 h-6 text-brand-gold absolute left-0 rtl:left-auto rtl:right-0 top-0"></i>
+                                    <span class="text-white" data-translate="services.executiveFeature1">On-time guarantee for all appointments</span>
+                                </div>
+                                <div class="relative pl-10 rtl:pl-0 rtl:pr-10">
+                                    <i data-lucide="check-circle" class="w-6 h-6 text-brand-gold absolute left-0 rtl:left-auto rtl:right-0 top-0"></i>
+                                    <span class="text-white" data-translate="services.executiveFeature2">Confidentiality and discretion assured</span>
+                                </div>
+                                <div class="relative pl-10 rtl:pl-0 rtl:pr-10">
+                                    <i data-lucide="check-circle" class="w-6 h-6 text-brand-gold absolute left-0 rtl:left-auto rtl:right-0 top-0"></i>
+                                    <span class="text-white" data-translate="services.executiveFeature3">In-car Wi-Fi and charging ports</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="relative">
+                            <img src="sclass.webp" alt="Executive Chauffeur Service" class="w-full h-96 object-cover rounded-lg">
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- VIP Transportation Section -->
+            <section class="py-20 md:py-28 bg-brand-dark dot-grid-bg">
+                <div class="container mx-auto px-6">
+                    <div class="grid lg:grid-cols-2 gap-12 items-center">
+                        <div class="lg:order-2">
+                            <div class="flex items-center mb-6">
+                                <i data-lucide="star" class="w-12 h-12 text-brand-gold mr-4"></i>
+                                <h2 class="text-3xl md:text-4xl font-bold text-white" data-translate="services.vipTitle">VIP Transportation</h2>
+                            </div>
+                            <p class="text-gray-400 text-lg mb-8" data-translate="services.vipDescription">For those who require the utmost in luxury, security, and exclusivity. Our VIP service caters to celebrities, dignitaries, and high-profile clients for red carpet events, state visits, and private engagements. Your safety and privacy are our highest priorities.</p>
+                            
+                            <div class="space-y-4">
+                                <div class="relative pl-10 rtl:pl-0 rtl:pr-10">
+                                    <i data-lucide="check-circle" class="w-6 h-6 text-brand-gold absolute left-0 rtl:left-auto rtl:right-0 top-0"></i>
+                                    <span class="text-white" data-translate="services.vipFeature1">Security-trained chauffeurs available</span>
+                                </div>
+                                <div class="relative pl-10 rtl:pl-0 rtl:pr-10">
+                                    <i data-lucide="check-circle" class="w-6 h-6 text-brand-gold absolute left-0 rtl:left-auto rtl:right-0 top-0"></i>
+                                    <span class="text-white" data-translate="services.vipFeature2">Bespoke travel coordination</span>
+                                </div>
+                                <div class="relative pl-10 rtl:pl-0 rtl:pr-10">
+                                    <i data-lucide="check-circle" class="w-6 h-6 text-brand-gold absolute left-0 rtl:left-auto rtl:right-0 top-0"></i>
+                                    <span class="text-white" data-translate="services.vipFeature3">Premium amenities and refreshments</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="lg:order-1 relative">
+                            <img src="bmw7.webp" alt="VIP Transportation" class="w-full h-96 object-cover rounded-lg">
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Airport Transfer Service Section -->
+            <section class="py-20 md:py-28 bg-brand-dark dot-grid-bg">
+                <div class="container mx-auto px-6">
+                    <div class="grid lg:grid-cols-2 gap-12 items-center">
+                        <div>
+                            <div class="flex items-center mb-6">
+                                <i data-lucide="plane" class="w-12 h-12 text-brand-gold mr-4"></i>
+                                <h2 class="text-3xl md:text-4xl font-bold text-white" data-translate="services.airportTitle">Airport Transfer Service</h2>
+                            </div>
+                            <p class="text-gray-400 text-lg mb-8" data-translate="services.airportDescription">Begin or end your journey in complete comfort and style. We offer premium, reliable transfers to and from all major airports. Our service includes flight tracking, meet-and-greet services, and luggage assistance for a stress-free experience.</p>
+
+                            <div class="space-y-4">
+                                <div class="relative pl-10 rtl:pl-0 rtl:pr-10">
+                                    <i data-lucide="check-circle" class="w-6 h-6 text-brand-gold absolute left-0 rtl:left-auto rtl:right-0 top-0"></i>
+                                    <span class="text-white" data-translate="services.airportFeature1">Real-time flight monitoring</span>
+                                </div>
+                                <div class="relative pl-10 rtl:pl-0 rtl:pr-10">
+                                    <i data-lucide="check-circle" class="w-6 h-6 text-brand-gold absolute left-0 rtl:left-auto rtl:right-0 top-0"></i>
+                                    <span class="text-white" data-translate="services.airportFeature2">Personalized welcome at arrivals</span>
+                                </div>
+                                <div class="relative pl-10 rtl:pl-0 rtl:pr-10">
+                                    <i data-lucide="check-circle" class="w-6 h-6 text-brand-gold absolute left-0 rtl:left-auto rtl:right-0 top-0"></i>
+                                    <span class="text-white" data-translate="services.airportFeature3">Ample space for luggage</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="relative">
+                            <img src="vclass.webp" alt="Airport Transfer Service" class="w-full h-96 object-cover rounded-lg">
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Contact Section -->
+            <section class="py-20 md:py-28 bg-brand-dark-gray dot-grid-bg">
+                <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                    <div class="text-center mb-16">
+                        <p class="text-brand-gold text-lg mb-4 font-semibold tracking-wider uppercase" data-translate="contact.sectionTitle">CONTACT US</p>
+                        <h2 class="section-title mb-6" data-translate="contact.title">Get In Touch</h2>
+                        <div class="w-24 h-1 bg-brand-gold mx-auto mb-8"></div>
+                        <p class="section-subtitle max-w-4xl mx-auto" data-translate="contact.description">
+                            Contact us today to arrange your premium transportation. Our team is available 24/7 to assist you with all your chauffeur service needs.
+                        </p>
+                    </div>
+
+                    <div class="grid lg:grid-cols-2 gap-8 xl:gap-12">
+                        <!-- Contact Information - Left Side -->
+                        <div class="lg:pr-4 lg:pl-16">
+                            <h3 class="text-2xl font-bold text-white mb-6" data-translate="contact.contactInfoTitle">Contact Information</h3>
+
+                            <div class="space-y-6">
+                                <div class="relative pl-20 rtl:pl-0 rtl:pr-20">
+                                    <div class="bg-brand-gold p-3 rounded-full absolute left-0 rtl:left-auto rtl:right-0 top-0">
+                                        <i data-lucide="phone" class="w-5 h-5 text-brand-dark"></i>
+                                    </div>
+                                    <div>
+                                        <h4 class="text-white font-semibold mb-1" data-translate="contact.phoneTitle">Phone</h4>
+                                        <p class="text-gray-300 phone-number">+49 176 31454340</p>
+                                    </div>
+                                </div>
+
+                                <div class="relative pl-20 rtl:pl-0 rtl:pr-20">
+                                    <div class="bg-brand-gold p-3 rounded-full absolute left-0 rtl:left-auto rtl:right-0 top-0">
+                                        <i data-lucide="mail" class="w-5 h-5 text-brand-dark"></i>
+                                    </div>
+                                    <div>
+                                        <h4 class="text-white font-semibold mb-1" data-translate="contact.emailTitle">Email</h4>
+                                        <p class="text-gray-300">info@premium-chauffeur.com</p>
+                                    </div>
+                                </div>
+
+                                <div class="relative pl-20 rtl:pl-0 rtl:pr-20">
+                                    <div class="bg-brand-gold p-3 rounded-full absolute left-0 rtl:left-auto rtl:right-0 top-0">
+                                        <i data-lucide="clock" class="w-5 h-5 text-brand-dark"></i>
+                                    </div>
+                                    <div>
+                                        <h4 class="text-white font-semibold mb-1" data-translate="contact.availabilityTitle">Availability</h4>
+                                        <p class="text-gray-300" data-translate="contact.availabilityText">24/7 Service Available</p>
+                                    </div>
+                                </div>
+
+                                <div class="relative pl-20 rtl:pl-0 rtl:pr-20">
+                                    <div class="bg-brand-gold p-3 rounded-full absolute left-0 rtl:left-auto rtl:right-0 top-0">
+                                        <i data-lucide="map-pin" class="w-5 h-5 text-brand-dark"></i>
+                                    </div>
+                                    <div>
+                                        <h4 class="text-white font-semibold mb-1" data-translate="contact.serviceAreaTitle">Service Area</h4>
+                                        <p class="text-gray-300" data-translate="contact.serviceAreaText">Germany & Surrounding Areas</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Digital Business Card - Right Side -->
+                        <div class="flex justify-center lg:justify-end">
+                            <div class="business-card-container w-full max-w-lg">
+                                <div class="business-card">
+                                    <div class="card-face card-front">
+                                        <div class="card-overlay"></div>
+                                    </div>
+                                    <div class="card-face card-back">
+                                        <div class="card-overlay"></div>
+                                    </div>
+                                    <div class="flip-indicator">Flip</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Exploration Buttons - Below Both Cards -->
+                    <div class="max-w-7xl mx-auto px-6 mt-12">
+                        <div class="text-center mb-8">
+                            <h3 class="text-2xl font-bold text-white mb-4" data-translate="contact.exploreTitle">Explore Our Services</h3>
+                            <p class="text-gray-300 text-lg max-w-3xl mx-auto" data-translate="contact.exploreDescription">
+                                Discover our premium destinations and tourism packages designed for your perfect journey.
+                            </p>
+                        </div>
+
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+                            <!-- Tourism Button -->
+                            <a href="tourism.html" class="group bg-transparent border-2 border-brand-gold text-brand-gold hover:bg-brand-gold hover:text-brand-dark transition-all duration-300 rounded-lg p-6 text-center transform hover:scale-105 hover:shadow-xl">
+                                <div class="flex items-center justify-center mb-3">
+                                    <i data-lucide="camera" class="w-8 h-8 mr-3"></i>
+                                    <span class="text-xl font-semibold" data-translate="contact.tourismButton">Tourism Packages</span>
+                                </div>
+                                <p class="text-base opacity-80" data-translate="contact.tourismDesc">Luxury travel experiences</p>
+                            </a>
+
+                            <!-- Destinations Button -->
+                            <a href="destinations.html" class="group bg-transparent border-2 border-brand-gold text-brand-gold hover:bg-brand-gold hover:text-brand-dark transition-all duration-300 rounded-lg p-6 text-center transform hover:scale-105 hover:shadow-xl">
+                                <div class="flex items-center justify-center mb-3">
+                                    <i data-lucide="map-pin" class="w-8 h-8 mr-3"></i>
+                                    <span class="text-xl font-semibold" data-translate="contact.destinationsButton">Premium Destinations</span>
+                                </div>
+                                <p class="text-base opacity-80" data-translate="contact.destinationsDesc">Exclusive travel locations</p>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+        </main>
+
+        <!-- Footer -->
+        <footer class="bg-brand-dark py-8 border-t border-gray-800">
+            <div class="max-w-7xl mx-auto px-6 lg:px-8">
+                <!-- Main Footer Content -->
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-6">
+                    <!-- Company Info -->
+                    <div class="space-y-4">
+                        <a href="index.html" class="flex items-center gap-3 mb-4 rtl:flex-row-reverse">
+                            <img src="assets/logo.svg" alt="Premium Chauffeur Logo" class="w-8 h-8 rotating-logo rtl:order-2">
+                            <p class="text-white text-lg font-bold tracking-wider uppercase rtl:order-1">
+                                Premium Chauffeur
+                            </p>
+                        </a>
+                        <p class="text-gray-400 text-sm leading-relaxed max-w-md" data-translate="footer.companyDescription">
+                            Experience luxury transportation with our premium chauffeur services. Professional drivers, luxury vehicles, and exceptional service across Germany and Europe.
+                        </p>
+                    </div>
+
+                    <!-- Contact Information -->
+                    <div class="space-y-4">
+                        <h3 class="text-white text-lg font-bold mb-4" data-translate="footer.contactInfo">Contact Info</h3>
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                            <div class="relative pl-8 rtl:pl-0 rtl:pr-8 text-gray-400 text-sm">
+                                <i data-lucide="map-pin" class="w-4 h-4 text-brand-gold flex-shrink-0 absolute left-0 rtl:left-auto rtl:right-0 top-0"></i>
+                                <div>
+                                    <span class="text-white font-medium block" data-translate="footer.address">Address:</span>
+                                    <span data-translate="footer.addressText">Luxusstraße 123, 10115 Berlin, Germany</span>
+                                </div>
+                            </div>
+                            <div class="relative pl-8 rtl:pl-0 rtl:pr-8 text-gray-400 text-sm">
+                                <i data-lucide="phone" class="w-4 h-4 text-brand-gold flex-shrink-0 absolute left-0 rtl:left-auto rtl:right-0 top-0"></i>
+                                <div>
+                                    <span class="text-white font-medium" data-translate="footer.phone">Phone:</span>
+                                    <a href="tel:+4917631454340" class="ml-2 rtl:ml-0 rtl:mr-2 hover:text-brand-gold transition-colors">+49 176 31454340</a>
+                                </div>
+                            </div>
+                            <div class="relative pl-8 rtl:pl-0 rtl:pr-8 text-gray-400 text-sm">
+                                <i data-lucide="mail" class="w-4 h-4 text-brand-gold flex-shrink-0 absolute left-0 rtl:left-auto rtl:right-0 top-0"></i>
+                                <div>
+                                    <span class="text-white font-medium" data-translate="footer.email">Email:</span>
+                                    <a href="mailto:info@premium-chauffeur.com" class="ml-2 rtl:ml-0 rtl:mr-2 hover:text-brand-gold transition-colors">info@premium-chauffeur.com</a>
+                                </div>
+                            </div>
+                            <div class="relative pl-8 rtl:pl-0 rtl:pr-8 text-gray-400 text-sm">
+                                <i data-lucide="clock" class="w-4 h-4 text-brand-gold flex-shrink-0 absolute left-0 rtl:left-auto rtl:right-0 top-0"></i>
+                                <div>
+                                    <span class="text-white font-medium" data-translate="footer.hours">Hours:</span>
+                                    <span class="ml-2 rtl:ml-0 rtl:mr-2" data-translate="footer.hoursText">24/7 Available</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Enhanced Bottom Section -->
+                <div class="border-t border-gray-800 pt-6">
+                    <div class="flex flex-col lg:flex-row justify-between items-center space-y-4 lg:space-y-0">
+                        <!-- Payment Methods -->
+                        <div class="flex items-center gap-4">
+                            <span class="text-white text-sm font-medium mr-2" data-translate="footer.weAccept">We Accept:</span>
+                            <div class="flex gap-2">
+                                <div class="w-12 h-7 bg-gradient-to-r from-blue-600 to-blue-700 rounded-md flex items-center justify-center shadow-lg border border-blue-500">
+                                    <span class="text-white text-xs font-bold">VISA</span>
+                                </div>
+                                <div class="w-12 h-7 bg-gradient-to-r from-red-600 to-red-700 rounded-md flex items-center justify-center shadow-lg border border-red-500">
+                                    <span class="text-white text-xs font-bold">MC</span>
+                                </div>
+                                <div class="w-12 h-7 bg-gradient-to-r from-blue-800 to-blue-900 rounded-md flex items-center justify-center shadow-lg border border-blue-700">
+                                    <span class="text-white text-xs font-bold">AMEX</span>
+                                </div>
+                                <div class="w-12 h-7 bg-gradient-to-r from-blue-500 to-blue-600 rounded-md flex items-center justify-center shadow-lg border border-blue-400">
+                                    <span class="text-white text-xs font-bold">PP</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Social Media -->
+                        <div class="flex items-center gap-4">
+                            <span class="text-white text-sm font-medium mr-2" data-translate="footer.followUs">Follow Us:</span>
+                            <div class="flex gap-2">
+                                <a href="https://facebook.com" target="_blank" rel="noopener noreferrer"
+                                   class="w-9 h-9 rounded-full bg-gradient-to-r from-gray-800 to-gray-700 flex items-center justify-center hover:from-brand-gold hover:to-yellow-500 hover:text-brand-dark transition-all duration-300 shadow-lg border border-gray-600 hover:border-brand-gold">
+                                    <i data-lucide="facebook" class="w-4 h-4"></i>
+                                </a>
+                                <a href="https://twitter.com" target="_blank" rel="noopener noreferrer"
+                                   class="w-9 h-9 rounded-full bg-gradient-to-r from-gray-800 to-gray-700 flex items-center justify-center hover:from-brand-gold hover:to-yellow-500 hover:text-brand-dark transition-all duration-300 shadow-lg border border-gray-600 hover:border-brand-gold">
+                                    <i data-lucide="twitter" class="w-4 h-4"></i>
+                                </a>
+                                <a href="https://instagram.com" target="_blank" rel="noopener noreferrer"
+                                   class="w-9 h-9 rounded-full bg-gradient-to-r from-gray-800 to-gray-700 flex items-center justify-center hover:from-brand-gold hover:to-yellow-500 hover:text-brand-dark transition-all duration-300 shadow-lg border border-gray-600 hover:border-brand-gold">
+                                    <i data-lucide="instagram" class="w-4 h-4"></i>
+                                </a>
+                                <a href="https://wa.me/4917631454340" target="_blank" rel="noopener noreferrer"
+                                   class="w-9 h-9 rounded-full bg-gradient-to-r from-gray-800 to-gray-700 flex items-center justify-center hover:from-brand-gold hover:to-yellow-500 hover:text-brand-dark transition-all duration-300 shadow-lg border border-gray-600 hover:border-brand-gold">
+                                    <i data-lucide="message-circle" class="w-4 h-4"></i>
+                                </a>
+                            </div>
+                        </div>
+
+                        <!-- Copyright and Legal -->
+                        <div class="flex flex-col lg:flex-row items-center gap-4">
+                            <div class="flex flex-wrap gap-4 text-center">
+                                <a href="#" class="text-gray-400 text-xs hover:text-brand-gold transition-colors duration-300" data-translate="footer.privacyPolicy">Privacy Policy</a>
+                                <a href="#" class="text-gray-400 text-xs hover:text-brand-gold transition-colors duration-300" data-translate="footer.termsOfService">Terms of Service</a>
+                                <a href="#" class="text-gray-400 text-xs hover:text-brand-gold transition-colors duration-300" data-translate="footer.imprint">Imprint</a>
+                            </div>
+                            <div class="text-center">
+                                <p class="text-gray-400 text-xs" data-translate="footer.copyright">
+                                    &copy; <span id="current-year">2025</span> Premium Chauffeur. All Rights Reserved.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </footer>
+
+        <!-- Chatbot -->
+        <div id="chatbot-container" class="chatbot-card fixed bottom-5 right-5 w-80 md:w-96 rounded-lg transform translate-y-[calc(100%+20px)] opacity-0 transition-all duration-500 ease-in-out z-50">
+            <div class="flex items-center justify-between p-4 bg-transparent border-b border-gray-600 rounded-t-lg">
+                <h3 class="text-lg font-semibold text-white flex items-center">
+                    <i data-lucide="bot" class="w-5 h-5 mr-2 text-brand-gold"></i>
+                    <span data-translate="chatbot.title">Premium Chauffeur Assistant</span>
+                </h3>
+                <div class="flex items-center space-x-2">
+                    <div class="flex items-center space-x-1 mr-2">
+                        <button id="size-small" class="text-gray-400 hover:text-white text-xs px-1" title="Small Size">S</button>
+                        <button id="size-medium" class="text-gray-400 hover:text-white text-xs px-1" title="Medium Size">M</button>
+                        <button id="size-large" class="text-gray-400 hover:text-white text-xs px-1" title="Large Size">L</button>
+                    </div>
+                    <button id="fullscreen-chatbot" class="text-gray-400 hover:text-white" title="Fullscreen">
+                        <i data-lucide="maximize" class="w-5 h-5"></i>
+                    </button>
+                    <button id="close-chatbot" class="text-gray-400 hover:text-white" title="Close">
+                        <i data-lucide="x" class="w-5 h-5"></i>
+                    </button>
+                </div>
+            </div>
+            <div id="chatbot-messages" class="h-96 p-4 overflow-y-auto">
+            </div>
+            <div class="p-4 border-t border-gray-600 bg-transparent rounded-b-lg">
+                <form id="chatbot-form" class="flex items-center space-x-2">
+                    <input type="text" id="chatbot-input" data-translate-placeholder="chatbot.placeholder" placeholder="Ask about our services..." class="flex-grow text-white rounded-md py-2 px-3 focus:outline-none">
+                    <button type="submit" class="bg-brand-gold text-brand-dark p-2 rounded-md hover:bg-yellow-400 transition-colors">
+                        <i data-lucide="send" class="w-5 h-5"></i>
+                    </button>
+                </form>
+            </div>
+            <div class="chatbot-resize-handle" title="Drag to resize"></div>
+        </div>
+    </div>
+    
+    <script type="module" src="https://esm.run/framer-motion"></script>
+    <script src="translations-simple.js"></script>
+    <script src="mobile-menu.js"></script>
+    <script src="script.js"></script>
+    <script src="chatbot.js"></script>
+    <script src="social-bubble.js"></script>
+    <script src="business-card.js"></script>
+
+    <script>
+        // Update current year in footer
+        document.getElementById('current-year').textContent = new Date().getFullYear();
+    </script>
+
+    <!-- Crosshair Effect for Book Now Buttons -->
+    <div id="crosshair-cursor" style="
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        pointer-events: none;
+        z-index: 10000;
+        display: none;
+    ">
+        <svg style="
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+        ">
+            <defs>
+                <filter id="turbulenceX">
+                    <feTurbulence id="turbulence-x" baseFrequency="0.02" numOctaves="3" result="noise" seed="1" />
+                    <feDisplacementMap in="SourceGraphic" scale="40" />
+                </filter>
+                <filter id="turbulenceY">
+                    <feTurbulence id="turbulence-y" baseFrequency="0.02" numOctaves="3" result="noise" seed="2" />
+                    <feDisplacementMap in="SourceGraphic" scale="40" />
+                </filter>
+            </defs>
+        </svg>
+
+        <!-- Crosshair Lines -->
+        <div id="crosshair-horizontal" style="
+            position: absolute;
+            width: 100%;
+            height: 2px;
+            background: #D4AF37;
+            pointer-events: none;
+            transform: translateY(50%);
+            opacity: 0;
+            box-shadow: 0 0 10px #D4AF37;
+        "></div>
+        <div id="crosshair-vertical" style="
+            position: absolute;
+            height: 100%;
+            width: 2px;
+            background: #D4AF37;
+            pointer-events: none;
+            transform: translateX(50%);
+            opacity: 0;
+            box-shadow: 0 0 10px #D4AF37;
+        "></div>
+
+        <!-- Crosshair Center Circle -->
+        <div id="crosshair-center" style="
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            border: 2px solid #D4AF37;
+            border-radius: 50%;
+            background: rgba(212, 175, 55, 0.1);
+            pointer-events: none;
+            transform: translate(-50%, -50%);
+            opacity: 0;
+            box-shadow: 0 0 20px #D4AF37;
+        "></div>
+
+        <!-- Crosshair Text Display -->
+        <div id="crosshair-text" style="
+            position: absolute;
+            color: #D4AF37;
+            font-size: 18px;
+            font-weight: bold;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.8);
+            pointer-events: none;
+            transform: translate(-50%, -50%);
+            opacity: 0;
+            white-space: nowrap;
+            font-family: 'Inter', sans-serif;
+            letter-spacing: 1px;
+        "></div>
+    </div>
+
+    <script>
+        // Crosshair Effect Implementation
+        class CrosshairEffect {
+            constructor() {
+                this.cursor = document.getElementById('crosshair-cursor');
+                this.lineHorizontal = document.getElementById('crosshair-horizontal');
+                this.lineVertical = document.getElementById('crosshair-vertical');
+                this.center = document.getElementById('crosshair-center');
+                this.textDisplay = document.getElementById('crosshair-text');
+                this.filterX = document.getElementById('turbulence-x');
+                this.filterY = document.getElementById('turbulence-y');
+
+                this.mouse = { x: 0, y: 0 };
+                this.renderedStyles = {
+                    tx: { previous: 0, current: 0, amt: 0.2 },
+                    ty: { previous: 0, current: 0, amt: 0.2 }
+                };
+
+                this.isActive = false;
+                this.currentButton = null;
+                this.textSequence = [];
+                this.textTimeline = null;
+                this.init();
+            }
+
+            lerp(a, b, n) {
+                return (1 - n) * a + n * b;
+            }
+
+            getMousePos(e) {
+                return { x: e.clientX, y: e.clientY };
+            }
+
+            init() {
+                // Find all Book Now buttons
+                const bookNowButtons = document.querySelectorAll('a[data-translate="nav.book_now"], a[data-translate="hero.bookButton"]');
+
+                bookNowButtons.forEach(button => {
+                    button.addEventListener('mouseenter', (e) => this.enter(e.target));
+                    button.addEventListener('mouseleave', () => this.leave());
+                });
+
+                document.addEventListener('mousemove', (e) => this.handleMouseMove(e));
+            }
+
+            getButtonText(button) {
+                const translateKey = button.getAttribute('data-translate');
+                if (translateKey === 'nav.book_now') {
+                    return 'Book Now';
+                } else if (translateKey === 'hero.bookButton') {
+                    return 'Book Your Journey';
+                }
+                return button.textContent.trim();
+            }
+
+            createTextSequence(buttonText) {
+                return ['Aim...', 'and...', buttonText];
+            }
+
+            animateTextSequence() {
+                if (this.textTimeline) {
+                    this.textTimeline.kill();
+                }
+
+                this.textTimeline = gsap.timeline();
+
+                this.textSequence.forEach((text, index) => {
+                    this.textTimeline
+                        .set(this.textDisplay, {
+                            innerHTML: text,
+                            opacity: 0,
+                            scale: 0.8
+                        })
+                        .to(this.textDisplay, {
+                            opacity: 1,
+                            scale: 1,
+                            duration: 0.3,
+                            ease: "back.out(1.7)"
+                        })
+                        .to(this.textDisplay, {
+                            opacity: 0,
+                            scale: 0.8,
+                            duration: 0.2,
+                            delay: 0.6,
+                            ease: "power2.in"
+                        }, index < this.textSequence.length - 1 ? "+=0" : "+=0.3");
+                });
+            }
+
+            handleMouseMove(e) {
+                this.mouse = this.getMousePos(e);
+
+                if (this.isActive) {
+                    this.renderedStyles.tx.current = this.mouse.x;
+                    this.renderedStyles.ty.current = this.mouse.y;
+
+                    if (!this.isRendering) {
+                        this.isRendering = true;
+                        this.render();
+                    }
+                }
+            }
+
+            render() {
+                this.renderedStyles.tx.previous = this.lerp(
+                    this.renderedStyles.tx.previous,
+                    this.renderedStyles.tx.current,
+                    this.renderedStyles.tx.amt
+                );
+                this.renderedStyles.ty.previous = this.lerp(
+                    this.renderedStyles.ty.previous,
+                    this.renderedStyles.ty.current,
+                    this.renderedStyles.ty.amt
+                );
+
+                // Update crosshair lines
+                this.lineHorizontal.style.transform = `translateY(${this.renderedStyles.ty.previous}px)`;
+                this.lineVertical.style.transform = `translateX(${this.renderedStyles.tx.previous}px)`;
+
+                // Update center circle position
+                this.center.style.left = `${this.renderedStyles.tx.previous}px`;
+                this.center.style.top = `${this.renderedStyles.ty.previous}px`;
+
+                // Update text position (slightly offset from center)
+                this.textDisplay.style.left = `${this.renderedStyles.tx.previous + 30}px`;
+                this.textDisplay.style.top = `${this.renderedStyles.ty.previous - 30}px`;
+
+                if (this.isActive) {
+                    requestAnimationFrame(() => this.render());
+                } else {
+                    this.isRendering = false;
+                }
+            }
+
+            enter(button) {
+                this.isActive = true;
+                this.currentButton = button;
+                this.cursor.style.display = 'block';
+
+                // Get button text and create sequence
+                const buttonText = this.getButtonText(button);
+                this.textSequence = this.createTextSequence(buttonText);
+
+                // Set initial position
+                this.renderedStyles.tx.previous = this.renderedStyles.tx.current = this.mouse.x;
+                this.renderedStyles.ty.previous = this.renderedStyles.ty.current = this.mouse.y;
+
+                // Animate crosshair elements in with GSAP
+                gsap.to([this.lineHorizontal, this.lineVertical], {
+                    duration: 0.6,
+                    ease: "power3.out",
+                    opacity: 0.8
+                });
+
+                gsap.to(this.center, {
+                    duration: 0.4,
+                    ease: "back.out(1.7)",
+                    opacity: 1,
+                    scale: 1,
+                    delay: 0.2
+                });
+
+                // Start text sequence animation
+                setTimeout(() => {
+                    this.animateTextSequence();
+                }, 300);
+
+                this.render();
+            }
+
+            leave() {
+                this.isActive = false;
+                this.currentButton = null;
+
+                // Kill text timeline if running
+                if (this.textTimeline) {
+                    this.textTimeline.kill();
+                }
+
+                // Animate all elements out
+                gsap.to([this.lineHorizontal, this.lineVertical], {
+                    duration: 0.6,
+                    ease: "power3.out",
+                    opacity: 0
+                });
+
+                gsap.to(this.center, {
+                    duration: 0.4,
+                    ease: "power2.in",
+                    opacity: 0,
+                    scale: 0.5
+                });
+
+                gsap.to(this.textDisplay, {
+                    duration: 0.3,
+                    ease: "power2.in",
+                    opacity: 0,
+                    scale: 0.8,
+                    onComplete: () => {
+                        this.cursor.style.display = 'none';
+                    }
+                });
+            }
+        }
+
+        // Initialize crosshair effect when DOM is loaded
+        document.addEventListener('DOMContentLoaded', () => {
+            new CrosshairEffect();
+        });
+    </script>
+
+</body>
+</html>

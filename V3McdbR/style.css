@@ -1,0 +1,1513 @@
+/* Import Al Jazeera style Arabic fonts */
+@import url('https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;500;600;700&family=Amiri:wght@400;700&family=Noto+Sans+Arabic:wght@300;400;500;600;700&display=swap');
+
+:root {
+    --color-dark: #111111;
+    --color-dark-gray: #18181B;
+    --color-light: #E2E8F0;
+    --color-gold: #D4AF37;
+    --color-gold-hover: #E0C160;
+}
+
+body {
+    background-color: var(--color-dark) !important;
+    color: var(--color-light);
+    font-family: 'Inter', sans-serif;
+}
+
+body.no-scroll {
+    overflow: hidden;
+}
+
+/* Arabic Typography - Al Jazeera Style */
+[lang="ar"],
+[dir="rtl"],
+html[lang="ar"],
+html[dir="rtl"] {
+    font-family: 'Cairo', 'Amiri', 'Noto Sans Arabic', 'Tahoma', 'Arial Unicode MS', sans-serif !important;
+}
+
+/* Arabic text styling */
+[lang="ar"] body,
+[dir="rtl"] body,
+html[lang="ar"] body,
+html[dir="rtl"] body {
+    font-family: 'Cairo', 'Amiri', 'Noto Sans Arabic', 'Tahoma', 'Arial Unicode MS', sans-serif !important;
+    line-height: 1.8 !important;
+    letter-spacing: 0.02em !important;
+}
+
+/* Arabic headers */
+[lang="ar"] h1, [lang="ar"] h2, [lang="ar"] h3, [lang="ar"] h4, [lang="ar"] h5, [lang="ar"] h6,
+[dir="rtl"] h1, [dir="rtl"] h2, [dir="rtl"] h3, [dir="rtl"] h4, [dir="rtl"] h5, [dir="rtl"] h6,
+html[lang="ar"] h1, html[lang="ar"] h2, html[lang="ar"] h3, html[lang="ar"] h4, html[lang="ar"] h5, html[lang="ar"] h6,
+html[dir="rtl"] h1, html[dir="rtl"] h2, html[dir="rtl"] h3, html[dir="rtl"] h4, html[dir="rtl"] h5, html[dir="rtl"] h6 {
+    font-family: 'Cairo', 'Amiri', 'Noto Sans Arabic', 'Tahoma', 'Arial Unicode MS', sans-serif !important;
+    font-weight: 600 !important;
+    line-height: 1.6 !important;
+}
+
+/* Arabic navigation */
+[lang="ar"] .nav-link, [lang="ar"] .mobile-nav-link,
+[dir="rtl"] .nav-link, [dir="rtl"] .mobile-nav-link,
+html[lang="ar"] .nav-link, html[lang="ar"] .mobile-nav-link,
+html[dir="rtl"] .nav-link, html[dir="rtl"] .mobile-nav-link {
+    font-family: 'Cairo', 'Amiri', 'Noto Sans Arabic', 'Tahoma', 'Arial Unicode MS', sans-serif !important;
+    font-weight: 500 !important;
+    letter-spacing: 0.01em !important;
+}
+
+/* Arabic buttons */
+[lang="ar"] .btn, [lang="ar"] button,
+[dir="rtl"] .btn, [dir="rtl"] button,
+html[lang="ar"] .btn, html[lang="ar"] button,
+html[dir="rtl"] .btn, html[dir="rtl"] button {
+    font-family: 'Cairo', 'Amiri', 'Noto Sans Arabic', 'Tahoma', 'Arial Unicode MS', sans-serif !important;
+    font-weight: 500 !important;
+}
+
+.bg-brand-dark {
+    background-color: transparent;
+}
+
+.bg-brand-dark-gray {
+    background-color: transparent;
+}
+
+.text-brand-light {
+    color: var(--color-light);
+}
+
+.text-brand-gold {
+    color: var(--color-gold);
+}
+
+.border-brand-gold {
+    border-color: var(--color-gold);
+}
+
+/* Slideshow Styles */
+.slideshow-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+    z-index: -1;
+}
+
+.slideshow-image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    object-fit: cover;
+    opacity: 0;
+    transition: opacity 1s ease-in-out;
+}
+
+#slideshow-container > div {
+    will-change: opacity;
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+}
+
+#slideshow-dots button {
+    position: relative;
+    overflow: hidden;
+}
+
+#slideshow-dots button:focus {
+    outline: 2px solid var(--color-gold);
+    outline-offset: 2px;
+}
+
+#slide-info {
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+}
+
+#slide-title, #slide-description {
+    opacity: 0;
+    animation: fadeInUp 0.8s ease-out 0.5s forwards;
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Ensure smooth transitions for slideshow */
+.slideshow-transition {
+    transition: opacity 1s ease-in-out;
+}
+
+.btn {
+    display: inline-block;
+    padding: 14px 32px;
+    border-radius: 8px;
+    font-weight: 600;
+    font-size: 1rem;
+    text-align: center;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    border: 2px solid transparent;
+}
+
+.btn-primary {
+    background-color: var(--color-gold);
+    color: var(--color-dark);
+    border-color: var(--color-gold);
+}
+
+.btn-primary:hover {
+    background-color: var(--color-gold-hover);
+    border-color: var(--color-gold-hover);
+    transform: translateY(-2px);
+    box-shadow: 0 10px 20px rgba(212, 175, 55, 0.2);
+}
+
+.btn-secondary {
+    background-color: transparent;
+    color: var(--color-gold);
+    border-color: var(--color-gold);
+}
+
+.btn-secondary:hover {
+    background-color: var(--color-gold);
+    color: var(--color-dark);
+    transform: translateY(-2px);
+    box-shadow: 0 10px 20px rgba(212, 175, 55, 0.2);
+}
+
+.section-title {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: white;
+    margin-bottom: 0.5rem;
+}
+
+.section-subtitle {
+    font-size: 1.125rem;
+    color: #94a3b8;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* Dot Grid Background */
+/* Enhanced Dot Grid Background with Animation */
+.dot-grid-bg {
+    position: relative;
+}
+
+/* Only apply overflow hidden to sections, not body */
+section.dot-grid-bg {
+    overflow: hidden;
+}
+
+.dot-grid-bg::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: radial-gradient(circle, #D4AF37 1px, transparent 1px);
+    background-size: 20px 20px;
+    opacity: 0.2;
+    z-index: -1;
+    pointer-events: none;
+    animation: dotFloat 8s ease-in-out infinite;
+}
+
+
+
+@keyframes dotFloat {
+    0%, 100% { 
+        opacity: 0.2;
+        transform: translateY(0px) translateX(0px);
+    }
+    25% { 
+        opacity: 0.4;
+        transform: translateY(-5px) translateX(2px);
+    }
+    50% { 
+        opacity: 0.6;
+        transform: translateY(0px) translateX(5px);
+    }
+    75% { 
+        opacity: 0.4;
+        transform: translateY(5px) translateX(-2px);
+    }
+}
+
+/* Enhanced dot effect for hero sections */
+.hero-dots {
+    position: relative;
+}
+
+.hero-dots::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: 
+        radial-gradient(circle, #D4AF37 1px, transparent 1px),
+        radial-gradient(circle, rgba(212, 175, 55, 0.5) 0.5px, transparent 0.5px);
+    background-size: 25px 25px, 50px 50px;
+    background-position: 0 0, 25px 25px;
+    opacity: 0.3;
+    z-index: 1;
+    animation: heroDotsMove 15s linear infinite;
+}
+
+@keyframes heroDotsMove {
+    0% { transform: translate(0, 0); }
+    100% { transform: translate(25px, 25px); }
+}
+
+/* Futuristic Vehicle Cards */
+.vehicle-card {
+    position: relative;
+    background: transparent;
+    border-radius: 20px;
+    padding: 0;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    border: none;
+    backdrop-filter: none;
+    overflow: hidden;
+    z-index: 2;
+}
+
+
+
+@keyframes gradientShift {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+.vehicle-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 0 30px rgba(212, 175, 55, 0.4), 0 0 60px rgba(212, 175, 55, 0.2);
+}
+
+.vehicle-card .vehicle-image-container {
+    position: relative;
+    margin: 1.5rem;
+    margin-bottom: 0;
+    border-radius: 16px;
+    overflow: hidden;
+    background: transparent;
+}
+
+.vehicle-card .vehicle-image-container::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(135deg, transparent 0%, rgba(212, 175, 55, 0.1) 100%);
+    opacity: 0;
+    transition: opacity 0.4s ease;
+}
+
+.vehicle-card:hover .vehicle-image-container::after {
+    opacity: 1;
+}
+
+.vehicle-card .vehicle-content {
+    padding: 1.5rem;
+    position: relative;
+    z-index: 2;
+}
+
+.vehicle-card .vehicle-title {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #ffffff;
+    margin-bottom: 0.5rem;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.vehicle-card .vehicle-subtitle {
+    color: #94a3b8;
+    font-size: 0.95rem;
+    margin-bottom: 1rem;
+}
+
+.vehicle-card .vehicle-specs {
+    display: flex;
+    gap: 0.75rem;
+    margin-top: 1rem;
+}
+
+.vehicle-card .spec-badge {
+    background: rgba(212, 175, 55, 0.1);
+    border: 1px solid rgba(212, 175, 55, 0.3);
+    color: #D4AF37;
+    padding: 0.25rem 0.75rem;
+    border-radius: 20px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.vehicle-card .hologram-effect {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    width: 40px;
+    height: 40px;
+    background: linear-gradient(45deg, transparent, rgba(212, 175, 55, 0.3), transparent);
+    border-radius: 50%;
+    opacity: 0;
+    animation: hologramPulse 2s ease-in-out infinite;
+}
+
+.vehicle-card:hover .hologram-effect {
+    opacity: 1;
+}
+
+@keyframes hologramPulse {
+    0%, 100% { transform: scale(1) rotate(0deg); opacity: 0.3; }
+    50% { transform: scale(1.2) rotate(180deg); opacity: 0.8; }
+}
+
+.service-card, .trust-item {
+    position: relative;
+    background: transparent;
+    padding: 2.5rem 2rem;
+    border-radius: 16px;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    border: none;
+    backdrop-filter: none;
+    overflow: hidden;
+    z-index: 2;
+    text-align: center;
+}
+
+
+
+.service-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* Tourism Cards */
+.tourism-card {
+    position: relative;
+    background: transparent;
+    padding: 1.5rem;
+    border-radius: 16px;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    border: none;
+    backdrop-filter: none;
+    overflow: hidden;
+    text-align: center;
+    z-index: 2;
+}
+
+.tourism-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 0 30px rgba(212, 175, 55, 0.4), 0 0 60px rgba(212, 175, 55, 0.2);
+}
+
+.tourism-card .tourism-icon {
+    position: relative;
+    z-index: 2;
+    margin-bottom: 1rem;
+}
+
+.tourism-card h3 {
+    position: relative;
+    z-index: 2;
+    color: #ffffff;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.tourism-card p {
+    position: relative;
+    z-index: 2;
+}
+
+.service-card:hover, .trust-item:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 0 30px rgba(212, 175, 55, 0.4), 0 0 60px rgba(212, 175, 55, 0.2);
+}
+
+
+
+
+.vehicle-card img {
+    transition: transform 0.4s ease;
+}
+
+.vehicle-card:hover img {
+    transform: scale(1.05);
+}
+
+.animation-container {
+    opacity: 0;
+    transform: translateY(30px);
+    animation: fadeInUp 0.8s ease-out forwards;
+    animation-delay: var(--delay, 0s);
+}
+
+@keyframes fadeInUp {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.section-content {
+    opacity: 0;
+    transform: translateY(50px);
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+.section-content.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.service-detail-grid {
+    display: grid;
+    gap: 4rem;
+    align-items: center;
+}
+@media (min-width: 768px) {
+    .service-detail-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+.service-text-content {
+    text-align: left;
+}
+.service-image-container {
+    aspect-ratio: 3/2;
+    overflow: hidden;
+    border-radius: 8px;
+}
+
+.service-image-container img {
+    transition: transform 0.5s ease, box-shadow 0.5s ease;
+    cursor: pointer;
+    border-radius: 8px;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+.service-image-container:hover img {
+    transform: scale(1.1);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+    z-index: 10;
+    position: relative;
+}
+
+/* V-Class image specific styling to match other images */
+.vclass-image {
+    object-position: center;
+    aspect-ratio: 3/2;
+}
+
+.comparison-table {
+    width: 100%;
+    min-width: 600px;
+    border-collapse: collapse;
+    margin-top: 3rem;
+    text-align: left;
+    background-color: transparent;
+    border-radius: 8px;
+    overflow: hidden;
+    border: 1px solid rgba(212, 175, 55, 0.2);
+}
+.comparison-table th, .comparison-table td {
+    padding: 1rem 1.5rem;
+    border-bottom: 1px solid rgba(212, 175, 55, 0.1);
+}
+.comparison-table th {
+    background-color: transparent;
+    color: var(--color-gold);
+    font-weight: 600;
+    font-size: 1rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+.comparison-table td {
+    color: var(--color-light);
+}
+.comparison-table tbody tr {
+    transition: background-color 0.3s ease;
+    background-color: transparent;
+}
+.comparison-table tbody tr:hover {
+    background-color: rgba(212, 175, 55, 0.02);
+}
+.comparison-table tbody tr:last-child td {
+    border-bottom: none;
+}
+.comparison-table td:first-child {
+    font-weight: 600;
+    color: white;
+}
+
+/* Comparison Frame Styling */
+.comparison-frame {
+    background: transparent;
+    border: 2px solid rgba(212, 175, 55, 0.3);
+    border-radius: 16px;
+    padding: 2rem;
+    backdrop-filter: none;
+    box-shadow: none;
+    position: relative;
+    overflow: hidden;
+}
+
+
+
+.frame-header {
+    position: relative;
+    z-index: 2;
+    margin-bottom: 2rem;
+}
+
+.frame-content {
+    position: relative;
+    z-index: 2;
+}
+
+/* Contact Cards */
+.contact-card {
+    background: transparent;
+    border: none;
+    transition: all 0.3s ease;
+    position: relative;
+    box-shadow: 0 0 20px rgba(212, 175, 55, 0.3), inset 0 0 20px rgba(212, 175, 55, 0.1);
+}
+
+.contact-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 0 40px rgba(212, 175, 55, 0.5), 0 0 80px rgba(212, 175, 55, 0.3), inset 0 0 30px rgba(212, 175, 55, 0.2);
+}
+
+/* Service Sections */
+.service-detail-grid {
+    background: transparent;
+    border: 2px solid rgba(212, 175, 55, 0.6);
+    border-radius: 16px;
+    padding: 2rem;
+    margin: 2rem 0;
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+.service-detail-grid:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 0 30px rgba(212, 175, 55, 0.4), 0 0 60px rgba(212, 175, 55, 0.2);
+    border-color: rgba(212, 175, 55, 1);
+}
+
+/* Main Page Service Sections */
+.main-service-section {
+    background: transparent;
+    border: 2px solid rgba(212, 175, 55, 0.6);
+    border-radius: 16px;
+    padding: 2rem;
+    margin: 2rem 0;
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+.main-service-section:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 0 30px rgba(212, 175, 55, 0.4), 0 0 60px rgba(212, 175, 55, 0.2);
+    border-color: rgba(212, 175, 55, 1);
+}
+
+/* Booking Form Cards */
+.booking-form-card {
+    background: transparent;
+    border: none;
+    transition: all 0.3s ease;
+    position: relative;
+    backdrop-filter: blur(10px);
+}
+
+.booking-form-card:hover {
+    box-shadow: 0 0 30px rgba(212, 175, 55, 0.4), 0 0 60px rgba(212, 175, 55, 0.2);
+}
+
+/* Booking Vehicle Cards */
+.booking-vehicle-card {
+    background: transparent;
+    border: none;
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.booking-vehicle-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 0 20px rgba(212, 175, 55, 0.4);
+}
+
+.booking-vehicle-card.selected {
+    background-color: rgba(212, 175, 55, 0.1);
+    box-shadow: 0 0 30px rgba(212, 175, 55, 0.3);
+}
+
+/* Booking Form Inputs */
+.booking-form-card input[type="text"],
+.booking-form-card input[type="email"],
+.booking-form-card input[type="tel"],
+.booking-form-card input[type="date"],
+.booking-form-card input[type="time"],
+.booking-form-card select,
+.booking-form-card textarea {
+    background: transparent !important;
+    border: 1px solid rgba(212, 175, 55, 0.4) !important;
+    backdrop-filter: blur(5px);
+}
+
+.booking-form-card input[type="text"]:focus,
+.booking-form-card input[type="email"]:focus,
+.booking-form-card input[type="tel"]:focus,
+.booking-form-card input[type="date"]:focus,
+.booking-form-card input[type="time"]:focus,
+.booking-form-card select:focus,
+.booking-form-card textarea:focus {
+    border-color: rgba(212, 175, 55, 0.8) !important;
+    box-shadow: 0 0 0 2px rgba(212, 175, 55, 0.2) !important;
+}
+
+/* Responsive Frame Styling */
+@media (max-width: 768px) {
+    .comparison-frame {
+        padding: 1.5rem;
+        margin: 0 -1rem;
+        border-radius: 12px;
+    }
+
+    .frame-header h3 {
+        font-size: 1.5rem;
+    }
+
+    .comparison-table {
+        min-width: 500px;
+    }
+
+    .contact-card {
+        margin: 0 -1rem;
+        border-radius: 12px;
+    }
+
+    .service-detail-grid {
+        margin: 1rem -1rem;
+        padding: 1.5rem;
+        border-radius: 12px;
+    }
+
+    .main-service-section {
+        margin: 1rem -1rem;
+        padding: 1.5rem;
+        border-radius: 12px;
+    }
+
+    .main-service-section img {
+        height: 250px;
+    }
+
+    .booking-form-card {
+        margin: 0 -1rem;
+        padding: 1.5rem;
+        border-radius: 12px;
+    }
+}
+
+
+/* Chatbot Card */
+.chatbot-card {
+    background: transparent;
+    border: 2px solid rgba(212, 175, 55, 0.6);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3), 0 0 20px rgba(212, 175, 55, 0.2);
+    backdrop-filter: blur(10px);
+}
+
+.chatbot-card:hover {
+    border-color: rgba(212, 175, 55, 0.8);
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.4), 0 0 30px rgba(212, 175, 55, 0.3);
+}
+
+#chatbot-container.active {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Chatbot Input Styling */
+#chatbot-input {
+    background: transparent !important;
+    border: 1px solid rgba(212, 175, 55, 0.4) !important;
+    backdrop-filter: blur(5px);
+}
+
+#chatbot-input:focus {
+    border-color: rgba(212, 175, 55, 0.8) !important;
+    box-shadow: 0 0 0 2px rgba(212, 175, 55, 0.2) !important;
+}
+
+/* Chat Messages Styling */
+#chatbot-messages {
+    background: transparent;
+}
+
+.chat-message {
+    background: rgba(0, 0, 0, 0.2) !important;
+    border: 1px solid rgba(212, 175, 55, 0.3);
+    backdrop-filter: blur(5px);
+}
+
+#chatbot-messages {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    scrollbar-width: thin;
+    scrollbar-color: var(--color-gold) var(--color-dark);
+}
+
+#chatbot-messages::-webkit-scrollbar {
+  width: 6px;
+}
+
+#chatbot-messages::-webkit-scrollbar-track {
+  background: var(--color-dark);
+}
+
+#chatbot-messages::-webkit-scrollbar-thumb {
+  background-color: var(--color-gold);
+  border-radius: 10px;
+}
+
+.chat-message {
+    max-width: 85%;
+    padding: 0.75rem 1rem;
+    border-radius: 12px;
+    line-height: 1.5;
+}
+
+.chat-message.user {
+    background-color: var(--color-gold);
+    color: var(--color-dark);
+    align-self: flex-end;
+    border-bottom-right-radius: 4px;
+}
+
+.chat-message.bot {
+    background-color: #374151;
+    color: var(--color-light);
+    align-self: flex-start;
+    border-bottom-left-radius: 4px;
+}
+
+.chat-message.typing {
+    align-self: flex-start;
+    color: #9ca3af;
+}
+
+.typing span {
+  height: 8px;
+  width: 8px;
+  background-color: #9ca3af;
+  border-radius: 50%;
+  display: inline-block;
+  animation: bob 1s infinite ease-in-out;
+}
+
+.typing span:nth-of-type(1) {
+    animation-delay: -0.2s;
+}
+
+.typing span:nth-of-type(2) {
+    animation-delay: -0.1s;
+}
+
+@keyframes bob {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-4px);
+  }
+}
+
+
+
+.fleet-card-detailed {
+    display: grid;
+    gap: 2rem;
+    align-items: center;
+    background: transparent;
+    padding: 2rem;
+    border-radius: 16px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    overflow: visible;
+    margin: 4rem 0;
+    position: relative;
+    backdrop-filter: none;
+    box-shadow: none;
+}
+
+
+
+@media (min-width: 1024px) {
+    .fleet-card-detailed {
+        grid-template-columns: 1fr 1fr;
+        gap: 4rem;
+        padding: 3rem;
+    }
+}
+
+.fleet-card-detailed:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+}
+
+.fleet-card-detailed img {
+    border-radius: 8px;
+    object-fit: cover;
+    width: 100%;
+    height: 300px;
+    max-height: 300px;
+    align-self: stretch;
+    transition: transform 0.6s ease, box-shadow 0.6s ease;
+    cursor: pointer;
+    transform-origin: center center;
+}
+
+.fleet-card-detailed img:hover {
+    transform: scale(1.6);
+    box-shadow: 0 25px 50px rgba(0, 0, 0, 0.4);
+    z-index: 20;
+    position: relative;
+}
+
+.fleet-card-detailed .content {
+    text-align: left;
+}
+
+.fleet-card-detailed h3 {
+    font-size: 2.25rem;
+    font-weight: 700;
+    color: white;
+    margin-bottom: 1.5rem;
+}
+
+.fleet-card-detailed .spec-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+}
+
+.fleet-card-detailed .spec-item {
+    background-color: rgba(255, 255, 255, 0.05);
+    padding: 0.75rem 1rem;
+    border-radius: 8px;
+    border-left: 3px solid rgba(255, 255, 255, 0.3);
+    backdrop-filter: none;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.fleet-card-detailed .spec-item .label {
+    font-size: 0.875rem;
+    color: #94a3b8;
+    display: block;
+}
+
+.fleet-card-detailed .spec-item .value {
+    font-size: 1rem;
+    font-weight: 600;
+    color: white;
+}
+
+/* Header Navigation Styles */
+#main-header {
+    background-color: transparent;
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+#main-header.scrolled {
+    background-color: rgba(17, 17, 17, 0.8);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-bottom-color: rgba(212, 175, 55, 0.3);
+}
+
+/* Make navbar fully transparent with y-website styling */
+.navbar-transparent {
+    background-color: transparent !important;
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.nav-link {
+    display: flex;
+    align-items: center;
+    color: var(--color-light);
+    text-decoration: none;
+    font-weight: 500;
+    padding: 8px 16px;
+    border-radius: 6px;
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+.nav-link:hover {
+    color: var(--color-gold);
+    background-color: rgba(212, 175, 55, 0.1);
+    transform: translateY(-1px);
+}
+
+.nav-link.active {
+    color: var(--color-gold);
+    background-color: rgba(212, 175, 55, 0.15);
+}
+
+.nav-link.active::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 20px;
+    height: 2px;
+    background-color: var(--color-gold);
+    border-radius: 1px;
+}
+
+.mobile-nav-link {
+    display: flex;
+    align-items: center;
+    color: var(--color-light);
+    text-decoration: none;
+    font-weight: 500;
+    padding: 12px 16px;
+    border-radius: 6px;
+    transition: all 0.3s ease;
+}
+
+.mobile-nav-link:hover {
+    color: var(--color-gold);
+    background-color: rgba(212, 175, 55, 0.1);
+}
+
+.mobile-nav-link.active {
+    color: var(--color-gold);
+    background-color: rgba(212, 175, 55, 0.15);
+}
+
+#mobile-menu.active {
+    display: block !important;
+}
+
+/* Force mobile menu to be vertical in Arabic */
+[lang="ar"] #mobile-menu .flex,
+[dir="rtl"] #mobile-menu .flex,
+html[lang="ar"] #mobile-menu .flex,
+html[dir="rtl"] #mobile-menu .flex {
+    flex-direction: column !important;
+    align-items: stretch !important;
+}
+
+[lang="ar"] #mobile-menu .mobile-nav-link,
+[dir="rtl"] #mobile-menu .mobile-nav-link,
+html[lang="ar"] #mobile-menu .mobile-nav-link,
+html[dir="rtl"] #mobile-menu .mobile-nav-link {
+    display: block !important;
+    width: 100% !important;
+    text-align: right !important;
+}
+
+/* Comprehensive RTL Support for Content Areas */
+[lang="ar"] .service-text-content,
+[dir="rtl"] .service-text-content,
+html[lang="ar"] .service-text-content,
+html[dir="rtl"] .service-text-content {
+    text-align: right !important;
+}
+
+[lang="ar"] .fleet-card-detailed .content,
+[dir="rtl"] .fleet-card-detailed .content,
+html[lang="ar"] .fleet-card-detailed .content,
+html[dir="rtl"] .fleet-card-detailed .content {
+    text-align: right !important;
+}
+
+[lang="ar"] .fleet-card-detailed .spec-item,
+[dir="rtl"] .fleet-card-detailed .spec-item,
+html[lang="ar"] .fleet-card-detailed .spec-item,
+html[dir="rtl"] .fleet-card-detailed .spec-item {
+    border-left: 1px solid rgba(255, 255, 255, 0.1) !important;
+    border-right: 3px solid rgba(255, 255, 255, 0.3) !important;
+}
+
+/* Fleet image hover effects for Arabic/RTL */
+[lang="ar"] .fleet-card-detailed img:hover,
+[dir="rtl"] .fleet-card-detailed img:hover,
+html[lang="ar"] .fleet-card-detailed img:hover,
+html[dir="rtl"] .fleet-card-detailed img:hover {
+    transform: scale(1.6) !important;
+    box-shadow: 0 25px 50px rgba(0, 0, 0, 0.4) !important;
+    z-index: 20 !important;
+    position: relative !important;
+}
+
+[lang="ar"] .fleet-card-detailed img,
+[dir="rtl"] .fleet-card-detailed img,
+html[lang="ar"] .fleet-card-detailed img,
+html[dir="rtl"] .fleet-card-detailed img {
+    transition: transform 0.6s ease, box-shadow 0.6s ease !important;
+    cursor: pointer !important;
+    transform-origin: center center !important;
+}
+
+[lang="ar"] table,
+[dir="rtl"] table,
+html[lang="ar"] table,
+html[dir="rtl"] table {
+    text-align: right !important;
+}
+
+[lang="ar"] .contact-form input,
+[lang="ar"] .contact-form textarea,
+[lang="ar"] .contact-form select,
+[dir="rtl"] .contact-form input,
+[dir="rtl"] .contact-form textarea,
+[dir="rtl"] .contact-form select,
+html[lang="ar"] .contact-form input,
+html[lang="ar"] .contact-form textarea,
+html[lang="ar"] .contact-form select,
+html[dir="rtl"] .contact-form input,
+html[dir="rtl"] .contact-form textarea,
+html[dir="rtl"] .contact-form select {
+    text-align: right !important;
+    direction: rtl !important;
+}
+
+[lang="ar"] .hero-content,
+[lang="ar"] .hero-title,
+[lang="ar"] .hero-subtitle,
+[dir="rtl"] .hero-content,
+[dir="rtl"] .hero-title,
+[dir="rtl"] .hero-subtitle,
+html[lang="ar"] .hero-content,
+html[lang="ar"] .hero-title,
+html[lang="ar"] .hero-subtitle,
+html[dir="rtl"] .hero-content,
+html[dir="rtl"] .hero-title,
+html[dir="rtl"] .hero-subtitle {
+    text-align: right !important;
+}
+
+[lang="ar"] .section-content,
+[lang="ar"] .service-card,
+[lang="ar"] .tourism-card,
+[dir="rtl"] .section-content,
+[dir="rtl"] .service-card,
+[dir="rtl"] .tourism-card,
+html[lang="ar"] .section-content,
+html[lang="ar"] .service-card,
+html[lang="ar"] .tourism-card,
+html[dir="rtl"] .section-content,
+html[dir="rtl"] .service-card,
+html[dir="rtl"] .tourism-card {
+    text-align: right !important;
+}
+
+[lang="ar"] .footer,
+[lang="ar"] .footer-content,
+[dir="rtl"] .footer,
+[dir="rtl"] .footer-content,
+html[lang="ar"] .footer,
+html[lang="ar"] .footer-content,
+html[dir="rtl"] .footer,
+html[dir="rtl"] .footer-content {
+    text-align: right !important;
+}
+
+/* Contact Information RTL Layout */
+[lang="ar"] .flex.items-start.space-x-4,
+[dir="rtl"] .flex.items-start.space-x-4,
+html[lang="ar"] .flex.items-start.space-x-4,
+html[dir="rtl"] .flex.items-start.space-x-4 {
+    flex-direction: row-reverse !important;
+    gap: 1rem !important;
+}
+
+[lang="ar"] .flex.items-start.space-x-4 > *,
+[dir="rtl"] .flex.items-start.space-x-4 > *,
+html[lang="ar"] .flex.items-start.space-x-4 > *,
+html[dir="rtl"] .flex.items-start.space-x-4 > * {
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+}
+
+[lang="ar"] .flex.items-center.space-x-4,
+[dir="rtl"] .flex.items-center.space-x-4,
+html[lang="ar"] .flex.items-center.space-x-4,
+html[dir="rtl"] .flex.items-center.space-x-4 {
+    flex-direction: row-reverse !important;
+    gap: 1rem !important;
+}
+
+[lang="ar"] .flex.items-center.space-x-4 > *,
+[dir="rtl"] .flex.items-center.space-x-4 > *,
+html[lang="ar"] .flex.items-center.space-x-4 > *,
+html[dir="rtl"] .flex.items-center.space-x-4 > * {
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+}
+
+/* Phone number and contact details RTL */
+[lang="ar"] .contact-info .flex,
+[dir="rtl"] .contact-info .flex,
+html[lang="ar"] .contact-info .flex,
+html[dir="rtl"] .contact-info .flex {
+    flex-direction: row-reverse !important;
+}
+
+/* Button icons RTL */
+[lang="ar"] .btn .mr-2,
+[dir="rtl"] .btn .mr-2,
+html[lang="ar"] .btn .mr-2,
+html[dir="rtl"] .btn .mr-2 {
+    margin-right: 0 !important;
+    margin-left: 0.5rem !important;
+}
+
+[lang="ar"] .mr-3,
+[dir="rtl"] .mr-3,
+html[lang="ar"] .mr-3,
+html[dir="rtl"] .mr-3 {
+    margin-right: 0 !important;
+    margin-left: 0.75rem !important;
+}
+
+/* Ensure phone numbers display correctly in RTL */
+[lang="ar"] .phone-number,
+[lang="ar"] a[href^="tel:"],
+[dir="rtl"] .phone-number,
+[dir="rtl"] a[href^="tel:"],
+html[lang="ar"] .phone-number,
+html[lang="ar"] a[href^="tel:"],
+html[dir="rtl"] .phone-number,
+html[dir="rtl"] a[href^="tel:"] {
+    direction: ltr !important;
+    unicode-bidi: embed !important;
+}
+
+/* Service Features List RTL - More Specific Selectors */
+html[lang="ar"] .service-text-content ul li.flex.items-center,
+html[dir="rtl"] .service-text-content ul li.flex.items-center,
+[lang="ar"] .service-text-content ul li.flex.items-center,
+[dir="rtl"] .service-text-content ul li.flex.items-center {
+    flex-direction: row-reverse !important;
+    justify-content: flex-end !important;
+}
+
+html[lang="ar"] .service-text-content ul li i.mr-3,
+html[dir="rtl"] .service-text-content ul li i.mr-3,
+[lang="ar"] .service-text-content ul li i.mr-3,
+[dir="rtl"] .service-text-content ul li i.mr-3 {
+    margin-right: 0 !important;
+    margin-left: 0.75rem !important;
+    order: 2 !important;
+}
+
+html[lang="ar"] .service-text-content ul li span,
+html[dir="rtl"] .service-text-content ul li span,
+[lang="ar"] .service-text-content ul li span,
+[dir="rtl"] .service-text-content ul li span {
+    order: 1 !important;
+}
+
+/* General list items with checkmarks RTL - More Specific */
+html[lang="ar"] li.flex.items-center,
+html[dir="rtl"] li.flex.items-center,
+[lang="ar"] li.flex.items-center,
+[dir="rtl"] li.flex.items-center {
+    flex-direction: row-reverse !important;
+    justify-content: flex-end !important;
+}
+
+/* Executive Service Section RTL Adjustments */
+html[lang="ar"] #executive .grid.lg\\:grid-cols-2,
+html[dir="rtl"] #executive .grid.lg\\:grid-cols-2,
+[lang="ar"] #executive .grid.lg\\:grid-cols-2,
+[dir="rtl"] #executive .grid.lg\\:grid-cols-2 {
+    direction: rtl !important;
+}
+
+html[lang="ar"] #executive .flex.items-center,
+html[dir="rtl"] #executive .flex.items-center,
+[lang="ar"] #executive .flex.items-center,
+[dir="rtl"] #executive .flex.items-center {
+    flex-direction: row-reverse !important;
+}
+
+html[lang="ar"] #executive .mr-4,
+html[dir="rtl"] #executive .mr-4,
+[lang="ar"] #executive .mr-4,
+[dir="rtl"] #executive .mr-4 {
+    margin-right: 0 !important;
+    margin-left: 1rem !important;
+}
+
+html[lang="ar"] #executive h2,
+html[dir="rtl"] #executive h2,
+[lang="ar"] #executive h2,
+[dir="rtl"] #executive h2 {
+    text-align: right !important;
+}
+
+html[lang="ar"] #executive p,
+html[dir="rtl"] #executive p,
+[lang="ar"] #executive p,
+[dir="rtl"] #executive p {
+    text-align: right !important;
+}
+
+html[lang="ar"] #executive .space-y-4,
+html[dir="rtl"] #executive .space-y-4,
+[lang="ar"] #executive .space-y-4,
+[dir="rtl"] #executive .space-y-4 {
+    text-align: right !important;
+}
+
+/* Service sections general RTL */
+html[lang="ar"] .service-detail-grid,
+html[dir="rtl"] .service-detail-grid,
+[lang="ar"] .service-detail-grid,
+[dir="rtl"] .service-detail-grid {
+    text-align: right !important;
+}
+
+html[lang="ar"] .service-detail-grid .grid.lg\\:grid-cols-2,
+html[dir="rtl"] .service-detail-grid .grid.lg\\:grid-cols-2,
+[lang="ar"] .service-detail-grid .grid.lg\\:grid-cols-2,
+[dir="rtl"] .service-detail-grid .grid.lg\\:grid-cols-2 {
+    direction: rtl !important;
+}
+
+html[lang="ar"] .service-detail-grid .flex.items-center,
+html[dir="rtl"] .service-detail-grid .flex.items-center,
+[lang="ar"] .service-detail-grid .flex.items-center,
+[dir="rtl"] .service-detail-grid .flex.items-center {
+    flex-direction: row-reverse !important;
+}
+
+html[lang="ar"] .service-detail-grid .mr-4,
+html[dir="rtl"] .service-detail-grid .mr-4,
+[lang="ar"] .service-detail-grid .mr-4,
+[dir="rtl"] .service-detail-grid .mr-4 {
+    margin-right: 0 !important;
+    margin-left: 1rem !important;
+}
+
+/* All service sections RTL support */
+html[lang="ar"] section[id="executive"],
+html[lang="ar"] section[id="vip"],
+html[lang="ar"] section[id="airport"],
+html[lang="ar"] section[id="tourism"],
+html[dir="rtl"] section[id="executive"],
+html[dir="rtl"] section[id="vip"],
+html[dir="rtl"] section[id="airport"],
+html[dir="rtl"] section[id="tourism"],
+[lang="ar"] section[id="executive"],
+[lang="ar"] section[id="vip"],
+[lang="ar"] section[id="airport"],
+[lang="ar"] section[id="tourism"],
+[dir="rtl"] section[id="executive"],
+[dir="rtl"] section[id="vip"],
+[dir="rtl"] section[id="airport"],
+[dir="rtl"] section[id="tourism"] {
+    direction: rtl !important;
+}
+
+html[lang="ar"] section[id="executive"] .grid,
+html[lang="ar"] section[id="vip"] .grid,
+html[lang="ar"] section[id="airport"] .grid,
+html[lang="ar"] section[id="tourism"] .grid,
+html[dir="rtl"] section[id="executive"] .grid,
+html[dir="rtl"] section[id="vip"] .grid,
+html[dir="rtl"] section[id="airport"] .grid,
+html[dir="rtl"] section[id="tourism"] .grid,
+[lang="ar"] section[id="executive"] .grid,
+[lang="ar"] section[id="vip"] .grid,
+[lang="ar"] section[id="airport"] .grid,
+[lang="ar"] section[id="tourism"] .grid,
+[dir="rtl"] section[id="executive"] .grid,
+[dir="rtl"] section[id="vip"] .grid,
+[dir="rtl"] section[id="airport"] .grid,
+[dir="rtl"] section[id="tourism"] .grid {
+    direction: rtl !important;
+}
+
+/* Service section text alignment */
+html[lang="ar"] section[id="executive"] h2,
+html[lang="ar"] section[id="vip"] h2,
+html[lang="ar"] section[id="airport"] h2,
+html[lang="ar"] section[id="tourism"] h2,
+html[lang="ar"] section[id="executive"] p,
+html[lang="ar"] section[id="vip"] p,
+html[lang="ar"] section[id="airport"] p,
+html[lang="ar"] section[id="tourism"] p,
+html[dir="rtl"] section[id="executive"] h2,
+html[dir="rtl"] section[id="vip"] h2,
+html[dir="rtl"] section[id="airport"] h2,
+html[dir="rtl"] section[id="tourism"] h2,
+html[dir="rtl"] section[id="executive"] p,
+html[dir="rtl"] section[id="vip"] p,
+html[dir="rtl"] section[id="airport"] p,
+html[dir="rtl"] section[id="tourism"] p,
+[lang="ar"] section[id="executive"] h2,
+[lang="ar"] section[id="vip"] h2,
+[lang="ar"] section[id="airport"] h2,
+[lang="ar"] section[id="tourism"] h2,
+[lang="ar"] section[id="executive"] p,
+[lang="ar"] section[id="vip"] p,
+[lang="ar"] section[id="airport"] p,
+[lang="ar"] section[id="tourism"] p,
+[dir="rtl"] section[id="executive"] h2,
+[dir="rtl"] section[id="vip"] h2,
+[dir="rtl"] section[id="airport"] h2,
+[dir="rtl"] section[id="tourism"] h2,
+[dir="rtl"] section[id="executive"] p,
+[dir="rtl"] section[id="vip"] p,
+[dir="rtl"] section[id="airport"] p,
+[dir="rtl"] section[id="tourism"] p {
+    text-align: right !important;
+}
+
+html[lang="ar"] li.flex.items-center i[data-lucide="check-circle"],
+html[dir="rtl"] li.flex.items-center i[data-lucide="check-circle"],
+[lang="ar"] li.flex.items-center i[data-lucide="check-circle"],
+[dir="rtl"] li.flex.items-center i[data-lucide="check-circle"] {
+    margin-right: 0 !important;
+    margin-left: 0.75rem !important;
+    order: 2 !important;
+}
+
+html[lang="ar"] li.flex.items-center span,
+html[dir="rtl"] li.flex.items-center span,
+[lang="ar"] li.flex.items-center span,
+[dir="rtl"] li.flex.items-center span {
+    order: 1 !important;
+}
+
+/* Override Tailwind margin classes for RTL */
+html[lang="ar"] .mr-3,
+html[dir="rtl"] .mr-3,
+[lang="ar"] .mr-3,
+[dir="rtl"] .mr-3 {
+    margin-right: 0 !important;
+    margin-left: 0.75rem !important;
+}
+
+/* Force RTL layout for all flex items with icons */
+html[lang="ar"] .flex.items-center > i[data-lucide],
+html[dir="rtl"] .flex.items-center > i[data-lucide],
+[lang="ar"] .flex.items-center > i[data-lucide],
+[dir="rtl"] .flex.items-center > i[data-lucide] {
+    margin-right: 0 !important;
+    margin-left: 0.75rem !important;
+}
+
+/* Ultra-specific RTL override */
+html[dir="rtl"] ul li.flex.items-center,
+html[lang="ar"] ul li.flex.items-center {
+    flex-direction: row-reverse !important;
+    text-align: right !important;
+}
+
+html[dir="rtl"] ul li.flex.items-center i,
+html[lang="ar"] ul li.flex.items-center i {
+    margin-right: 0 !important;
+    margin-left: 12px !important;
+}
+
+/* Add padding to body to account for fixed header */
+body {
+    padding-top: 80px;
+}
+
+/* Hero Section */
+#hero {
+    background: linear-gradient(135deg, rgba(0,0,0,0.4), rgba(0,0,0,0.3));
+    color: white;
+    min-height: 100vh;
+    position: relative;
+    z-index: 1;
+}
+
+/* Rotating logo animation */
+.rotating-logo {
+    animation: rotate 4s linear infinite;
+    transition: transform 0.3s ease;
+}
+
+.rotating-logo:hover {
+    animation-duration: 1s;
+}
+
+@keyframes rotate {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+/* RTL Footer Logo Positioning - Ultra Strong Override */
+html[dir="rtl"] footer a.flex.items-center,
+html[lang="ar"] footer a.flex.items-center,
+[dir="rtl"] footer a.flex.items-center,
+[lang="ar"] footer a.flex.items-center {
+    flex-direction: row-reverse !important;
+    justify-content: flex-start !important;
+}
+
+/* Ensure logo rotation works in RTL */
+html[dir="rtl"] .rotating-logo,
+html[lang="ar"] .rotating-logo,
+[dir="rtl"] .rotating-logo,
+[lang="ar"] .rotating-logo {
+    animation: rotate 4s linear infinite !important;
+    transition: transform 0.3s ease !important;
+}
+
+html[dir="rtl"] .rotating-logo:hover,
+html[lang="ar"] .rotating-logo:hover,
+[dir="rtl"] .rotating-logo:hover,
+[lang="ar"] .rotating-logo:hover {
+    animation-duration: 1s !important;
+}
+
+/* Language dropdown styles removed - using inline Tailwind classes */

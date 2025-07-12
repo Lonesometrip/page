@@ -1,0 +1,365 @@
+/* Language Toggle Styles */
+.language-toggle {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  z-index: 1000;
+  display: flex;
+  gap: 5px;
+  background: rgba(0, 0, 0, 0.8);
+  padding: 8px;
+  border-radius: 25px;
+  backdrop-filter: blur(10px);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+/* Language Toggle Button */
+.language-btn {
+    background: none;
+    border: none;
+    color: #ffffff;
+    padding: 6px 12px;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-size: 14px;
+    font-weight: 500;
+    outline: none;
+    position: relative;
+    z-index: 10;
+}
+
+.language-btn:hover {
+    background: rgba(212, 175, 55, 0.2);
+    color: #d4af37;
+    transform: translateY(-1px);
+}
+
+.language-btn.active {
+    background: #d4af37;
+    color: #000000;
+    box-shadow: 0 2px 4px rgba(212, 175, 55, 0.3);
+}
+
+#language-toggle, #mobile-language-toggle {
+    transition: all 0.3s ease;
+}
+
+#mobile-language-toggle {
+    margin-top: 8px;
+}
+
+/* Mobile Language Selector Styles */
+.mobile-lang-btn {
+    transition: all 0.3s ease;
+    border: 1px solid transparent;
+}
+
+.mobile-lang-btn:hover {
+    background-color: #374151 !important;
+    border-color: #D4AF37;
+    transform: translateY(-1px);
+}
+
+.mobile-lang-btn:active {
+    transform: translateY(0);
+    background-color: #D4AF37 !important;
+    color: #000000 !important;
+}
+
+.mobile-lang-btn.active {
+    background-color: #D4AF37 !important;
+    color: #000000 !important;
+    border-color: #F0C14B;
+}
+
+/* Mobile language section styling */
+@media (max-width: 768px) {
+    .mobile-lang-btn {
+        min-width: 100px;
+        justify-content: flex-start;
+    }
+
+    .mobile-lang-btn span:first-child {
+        margin-right: 8px;
+    }
+}
+
+/* RTL Support */
+[dir="rtl"] {
+  text-align: right;
+}
+
+[dir="rtl"] .language-toggle {
+  right: auto;
+  left: 20px;
+}
+
+[dir="rtl"] .slideshow-container {
+  direction: rtl;
+}
+
+[dir="rtl"] .slide-content {
+  text-align: right;
+}
+
+[dir="rtl"] .slide-title,
+[dir="rtl"] .slide-description {
+  text-align: right;
+}
+
+[dir="rtl"] .nav-dots {
+  direction: ltr; /* Keep dots in normal order */
+}
+
+/* Arabic Font Support */
+[dir="rtl"] body,
+[dir="rtl"] h1,
+[dir="rtl"] h2,
+[dir="rtl"] h3,
+[dir="rtl"] h4,
+[dir="rtl"] h5,
+[dir="rtl"] h6,
+[dir="rtl"] p,
+[dir="rtl"] span,
+[dir="rtl"] div {
+  font-family: 'Cairo', 'Amiri', 'Noto Sans Arabic', 'Arial', sans-serif;
+  line-height: 1.6;
+}
+
+/* Navigation RTL */
+[dir="rtl"] nav ul {
+  flex-direction: row-reverse;
+}
+
+[dir="rtl"] .nav-item {
+  margin-left: 0;
+  margin-right: 2rem;
+}
+
+[dir="rtl"] .nav-item:last-child {
+  margin-right: 0;
+}
+
+/* Button RTL */
+[dir="rtl"] .btn {
+  text-align: center;
+}
+
+/* Grid and Flex RTL */
+[dir="rtl"] .flex {
+  flex-direction: row-reverse;
+}
+
+[dir="rtl"] .grid {
+  direction: rtl;
+}
+
+/* Service Cards RTL */
+[dir="rtl"] .service-card,
+[dir="rtl"] .fleet-card,
+[dir="rtl"] .tourism-card {
+  text-align: right;
+}
+
+/* Contact Form RTL */
+[dir="rtl"] .contact-form input,
+[dir="rtl"] .contact-form textarea {
+  text-align: right;
+  direction: rtl;
+}
+
+/* Footer RTL */
+[dir="rtl"] .footer {
+  text-align: right;
+}
+
+[dir="rtl"] .footer-links {
+  flex-direction: row-reverse;
+}
+
+/* Responsive Language Toggle */
+@media (max-width: 768px) {
+  .language-toggle {
+    top: 10px;
+    right: 10px;
+    padding: 6px;
+  }
+  
+  [dir="rtl"] .language-toggle {
+    right: auto;
+    left: 10px;
+  }
+  
+  .lang-btn {
+    padding: 6px 12px;
+    font-size: 12px;
+    min-width: 50px;
+  }
+}
+
+/* Smooth transitions for language switching */
+* {
+  transition: text-align 0.3s ease, direction 0.3s ease;
+}
+
+/* Hero section RTL adjustments */
+[dir="rtl"] .hero-content {
+  text-align: right;
+}
+
+[dir="rtl"] .hero-title {
+  text-align: right;
+}
+
+[dir="rtl"] .hero-subtitle {
+  text-align: right;
+}
+
+/* Ensure proper spacing for Arabic text */
+[dir="rtl"] h1, [dir="rtl"] h2, [dir="rtl"] h3 {
+  letter-spacing: 0;
+  word-spacing: 0.1em;
+}
+
+/* Loading animation for language switch */
+.language-switching {
+  opacity: 0.7;
+  pointer-events: none;
+}
+
+.language-switching * {
+  transition: opacity 0.2s ease;
+}
+
+/* Arabic number formatting */
+[dir="rtl"] .number {
+  direction: ltr;
+  display: inline-block;
+}
+
+/* Ensure images don't flip in RTL - but allow fleet hover effects */
+[dir="rtl"] img:not(.fleet-card-detailed img) {
+  transform: none !important;
+}
+
+/* Allow fleet images to have hover transforms in RTL */
+[dir="rtl"] .fleet-card-detailed img {
+  transform: initial !important;
+}
+
+[dir="rtl"] .fleet-card-detailed img:hover {
+  transform: scale(1.6) !important;
+}
+
+/* Special handling for logos and icons */
+[dir="rtl"] .logo,
+[dir="rtl"] .icon {
+  transform: none !important;
+}
+
+/* Slideshow navigation RTL */
+[dir="rtl"] .slideshow-nav {
+  direction: ltr;
+}
+
+[dir="rtl"] .slide-nav-dot {
+  margin: 0 5px;
+}
+
+/* Ensure proper text rendering for mixed content */
+[dir="rtl"] .mixed-content {
+  unicode-bidi: embed;
+}
+
+/* Contact information RTL */
+[dir="rtl"] .contact-info {
+  text-align: right;
+}
+
+[dir="rtl"] .contact-item {
+  flex-direction: row-reverse;
+}
+
+[dir="rtl"] .contact-icon {
+  margin-left: 10px;
+  margin-right: 0;
+}
+
+/* Force RTL for checkmark lists - Ultra Strong Override */
+html[dir="rtl"] li.flex.items-center,
+html[lang="ar"] li.flex.items-center,
+body[dir="rtl"] li.flex.items-center,
+body[lang="ar"] li.flex.items-center {
+  flex-direction: row-reverse !important;
+  justify-content: flex-start !important;
+  text-align: right !important;
+}
+
+html[dir="rtl"] li.flex.items-center i[data-lucide="check-circle"],
+html[lang="ar"] li.flex.items-center i[data-lucide="check-circle"],
+body[dir="rtl"] li.flex.items-center i[data-lucide="check-circle"],
+body[lang="ar"] li.flex.items-center i[data-lucide="check-circle"] {
+  margin-right: 0 !important;
+  margin-left: 12px !important;
+  order: 2 !important;
+  float: right !important;
+}
+
+html[dir="rtl"] li.flex.items-center span,
+html[lang="ar"] li.flex.items-center span,
+body[dir="rtl"] li.flex.items-center span,
+body[lang="ar"] li.flex.items-center span {
+  order: 1 !important;
+  text-align: right !important;
+  flex: 1 !important;
+}
+
+/* Override all margin classes in RTL - Ultra Strong */
+html[dir="rtl"] .mr-3,
+html[lang="ar"] .mr-3,
+body[dir="rtl"] .mr-3,
+body[lang="ar"] .mr-3,
+html[dir="rtl"] i.mr-3,
+html[lang="ar"] i.mr-3,
+body[dir="rtl"] i.mr-3,
+body[lang="ar"] i.mr-3 {
+  margin-right: 0 !important;
+  margin-left: 0.75rem !important;
+}
+
+/* Force checkmark positioning with transform */
+html[dir="rtl"] li.flex.items-center i[data-lucide],
+html[lang="ar"] li.flex.items-center i[data-lucide],
+body[dir="rtl"] li.flex.items-center i[data-lucide],
+body[lang="ar"] li.flex.items-center i[data-lucide] {
+  position: relative !important;
+  transform: translateX(100%) !important;
+  margin-left: 0 !important;
+  margin-right: 12px !important;
+}
+
+/* RTL Footer Logo Positioning - Strongest Override */
+html[dir="rtl"] footer .flex.items-center,
+html[lang="ar"] footer .flex.items-center,
+body[dir="rtl"] footer .flex.items-center,
+body[lang="ar"] footer .flex.items-center {
+  flex-direction: row-reverse !important;
+  justify-content: flex-start !important;
+}
+
+/* Ensure footer logo rotation continues in RTL */
+html[dir="rtl"] footer .rotating-logo,
+html[lang="ar"] footer .rotating-logo,
+body[dir="rtl"] footer .rotating-logo,
+body[lang="ar"] footer .rotating-logo {
+  animation: rotate 4s linear infinite !important;
+  order: 2 !important;
+}
+
+html[dir="rtl"] footer .flex.items-center p,
+html[lang="ar"] footer .flex.items-center p,
+body[dir="rtl"] footer .flex.items-center p,
+body[lang="ar"] footer .flex.items-center p {
+  order: 1 !important;
+}

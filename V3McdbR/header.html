@@ -1,0 +1,172 @@
+<!-- Navigation Header -->
+<header id="main-header" class="fixed top-0 left-0 right-0 z-50 navbar-transparent transition-all duration-300">
+    <nav class="container mx-auto px-6 py-4">
+        <div class="flex items-center justify-between">
+            <!-- Logo -->
+            <a href="index.html" class="flex items-center space-x-3 hover:opacity-80 transition-opacity">
+                <div class="w-10 h-10 flex items-center justify-center">
+                    <img src="assets/logo.svg" alt="Premium Chauffeur Logo" class="w-8 h-8 rotating-logo">
+                </div>
+                <div class="text-xl font-bold text-brand-gold">
+                    PREMIUM CHAUFFEUR
+                </div>
+            </a>
+
+            <!-- Desktop Navigation -->
+            <div class="hidden md:flex items-center space-x-8">
+                <a href="services.html" class="nav-link" data-page="services" data-translate="nav.services">
+                    Services
+                </a>
+                <a href="fleet.html" class="nav-link" data-page="fleet" data-translate="nav.fleet">
+                    Fleet
+                </a>
+                <a href="destinations.html" class="nav-link" data-page="destinations" data-translate="nav.destinations">
+                    Destinations
+                </a>
+                <a href="Tourism_Packages.html" class="nav-link" data-page="Tourism_Packages" data-translate="nav.tourism_packages">
+                    Tourism
+                </a>
+                <a href="contact.html" class="nav-link" data-page="contact" data-translate="nav.contact">
+                    Contact
+                </a>
+                <a href="booking-form.html" class="btn btn-primary text-xs px-4 py-2" data-translate="nav.book_now">
+                    Book Now
+                </a>
+                
+                <!-- Language Dropdown -->
+                <div class="language-dropdown relative ml-4">
+                    <button class="language-toggle flex items-center space-x-2 px-3 py-2 rounded-lg bg-white/10 backdrop-blur-sm border border-white/20 hover:bg-white/20 transition-all duration-300" onclick="toggleDropdown()">
+                        <svg class="language-icon w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <circle cx="12" cy="12" r="10"/>
+                            <path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"/>
+                            <path d="M2 12h20"/>
+                        </svg>
+                        <span class="current-lang text-sm font-medium">EN</span>
+                        <svg class="dropdown-arrow w-3 h-3 transition-transform duration-200" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <polyline points="6,9 12,15 18,9"></polyline>
+                        </svg>
+                    </button>
+                    <div class="language-menu absolute top-full left-1/2 mt-2 w-32 rounded-lg shadow-xl transition-all duration-200 hidden" id="languageMenu" style="
+                        transform: translateX(-50%);
+                        z-index: 9999;
+                        background: rgba(255, 255, 255, 0.95);
+                        border: 1px solid rgba(0, 0, 0, 0.1);
+                    ">
+                        <button class="lang-option w-full px-3 py-2 text-center hover:bg-gray-100 transition-colors duration-200 first:rounded-t-lg" data-lang="en" onclick="selectLang('en')">
+                            <span class="lang-code text-sm font-semibold text-black">EN</span>
+                        </button>
+                        <button class="lang-option w-full px-3 py-2 text-center hover:bg-gray-100 transition-colors duration-200" data-lang="de" onclick="selectLang('de')">
+                            <span class="lang-code text-sm font-semibold text-black">DE</span>
+                        </button>
+                        <button class="lang-option w-full px-3 py-2 text-center hover:bg-gray-100 transition-colors duration-200 last:rounded-b-lg" data-lang="ar" onclick="selectLang('ar')">
+                            <span class="lang-code text-sm font-semibold text-black">AR</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Mobile Menu Button -->
+            <button id="mobile-menu-btn" class="md:hidden text-brand-light hover:text-brand-gold transition-colors">
+                <i data-lucide="menu" class="w-6 h-6"></i>
+            </button>
+        </div>
+
+        <!-- Mobile Navigation -->
+        <div id="mobile-menu" class="md:hidden mt-4 pb-4 border-t border-gray-800/50 hidden">
+            <div class="flex flex-col space-y-4 pt-4">
+                <a href="services.html" class="mobile-nav-link" data-page="services" data-translate="nav.services">
+                    Services
+                </a>
+                <a href="fleet.html" class="mobile-nav-link" data-page="fleet" data-translate="nav.fleet">
+                    Fleet
+                </a>
+                <a href="destinations.html" class="mobile-nav-link" data-page="destinations" data-translate="nav.destinations">
+                    Destinations
+                </a>
+                <a href="Tourism_Packages.html" class="mobile-nav-link" data-page="Tourism_Packages" data-translate="nav.tourism_packages">
+                    Tourism
+                </a>
+                <a href="contact.html" class="mobile-nav-link" data-page="contact" data-translate="nav.contact">
+                    Contact
+                </a>
+                <a href="booking-form.html" class="btn btn-primary text-xs px-4 py-2 mt-4 inline-block text-center" data-translate="nav.book_now">
+                    Book Now
+                </a>
+                
+                <!-- Mobile Language Dropdown -->
+                <div id="mobile-language-toggle" class="flex items-center justify-center pt-4 border-t border-gray-800/50">
+                    <div class="language-dropdown-mobile relative md:hidden">
+                        <button class="language-toggle-mobile flex items-center space-x-2 px-3 py-2 rounded-lg bg-white/10 backdrop-blur-sm border border-white/20 text-white hover:bg-white/20 transition-all duration-300" onclick="if(window.toggleLanguageDropdownMobile) window.toggleLanguageDropdownMobile(); else console.log('Mobile function not found')">
+                            <svg class="language-icon w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <circle cx="12" cy="12" r="10"/>
+                                <path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"/>
+                                <path d="M2 12h20"/>
+                            </svg>
+                            <span class="current-lang-mobile text-sm font-medium">EN</span>
+                            <svg class="dropdown-arrow-mobile w-3 h-3 transition-transform duration-200" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <polyline points="6,9 12,15 18,9"></polyline>
+                            </svg>
+                        </button>
+                        <div class="language-menu-mobile absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 w-40 bg-white/10 backdrop-blur-md rounded-lg shadow-xl border border-white/20 opacity-0 invisible scale-95 transition-all duration-200 z-50" id="languageMenuMobile" style="transition: opacity 0.2s ease, visibility 0.2s ease, transform 0.2s ease;">
+                            <button class="lang-option-mobile w-full flex items-center justify-center px-3 py-2 text-center hover:bg-white/20 transition-colors duration-200 first:rounded-t-lg text-white" data-lang="en" onclick="if(window.selectLanguageMobile) window.selectLanguageMobile('en'); else console.log('selectLanguageMobile not found')">
+                                <span class="lang-code text-sm font-semibold">EN</span>
+                            </button>
+                            <button class="lang-option-mobile w-full flex items-center justify-center px-3 py-2 text-center hover:bg-white/20 transition-colors duration-200 text-white" data-lang="de" onclick="if(window.selectLanguageMobile) window.selectLanguageMobile('de'); else console.log('selectLanguageMobile not found')">
+                                <span class="lang-code text-sm font-semibold">DE</span>
+                            </button>
+                            <button class="lang-option-mobile w-full flex items-center justify-center px-3 py-2 text-center hover:bg-white/20 transition-colors duration-200 last:rounded-b-lg text-white" data-lang="ar" onclick="if(window.selectLanguageMobile) window.selectLanguageMobile('ar'); else console.log('selectLanguageMobile not found')">
+                                <span class="lang-code text-sm font-semibold">AR</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+</header>
+
+<script>
+function toggleDropdown() {
+    console.log('toggleDropdown called');
+    const menu = document.getElementById('languageMenu');
+    if (menu) {
+        if (menu.classList.contains('hidden')) {
+            menu.classList.remove('hidden');
+            console.log('Dropdown shown');
+        } else {
+            menu.classList.add('hidden');
+            console.log('Dropdown hidden');
+        }
+    } else {
+        console.log('Menu not found');
+    }
+}
+
+function selectLang(lang) {
+    console.log('Language selected:', lang);
+    // Update the current language display
+    const currentLang = document.querySelector('.current-lang');
+    if (currentLang) {
+        currentLang.textContent = lang.toUpperCase();
+    }
+    // Hide dropdown
+    const menu = document.getElementById('languageMenu');
+    if (menu) {
+        menu.classList.add('hidden');
+    }
+    // Call language switching if available
+    if (window.switchLanguage) {
+        window.switchLanguage(lang);
+    }
+}
+
+// Close dropdown when clicking outside
+document.addEventListener('click', function(event) {
+    const dropdown = document.querySelector('.language-dropdown');
+    const menu = document.getElementById('languageMenu');
+
+    if (dropdown && !dropdown.contains(event.target) && menu && !menu.classList.contains('hidden')) {
+        menu.classList.add('hidden');
+    }
+});
+</script>
